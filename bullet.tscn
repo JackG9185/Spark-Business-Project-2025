@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cj3kn4tqof5co"]
+
+[ext_resource type="Script" uid="uid://bps1nrv5322ck" path="res://bullet.gd" id="1_v7oki"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v8qja"]
+
+[node name="bullet" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_v7oki")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_v8qja")
+debug_color = Color(0.99999994, 0, 0.10916842, 0.41960785)
+
+[node name="life" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="life" to="." method="_on_life_timeout"]

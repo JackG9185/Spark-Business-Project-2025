@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://db68uewtcumda"]
+
+[ext_resource type="PackedScene" uid="uid://dlt3uqsdvgvsi" path="res://player/stickman.tscn" id="1_80nbo"]
+
+[node name="world" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_80nbo")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
