@@ -1,0 +1,14 @@
+63f7b34db8d8cdea90c76aacccf841ec
+::res://::1759984433
+bullet.gd::GDScript::3478014921708772306::1759982999::0::1::::<>CharacterBody2D<><>0<>0<><>::
+bullet.tscn::PackedScene::5462975475764940434::1759982999::0::1::::<><><>0<>0<><>::uid://bps1nrv5322ck::::res://bullet.gd
+game.tscn::PackedScene::7295486226678423350::1759984430::0::1::::<><><>0<>0<><>::uid://dlt3uqsdvgvsi::::res://stickman.tscn
+icon.svg::CompressedTexture2D::1334540343803933718::1759982999::1759984117::1::::<><><>0<>0<>578ffec3596eca82e6ccb721b4280934<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+main.tscn::PackedScene::7295486226678423350::1759982999::0::1::::<><><>0<>0<><>::
+main_menu.gd::GDScript::7470389647347332370::1759982999::0::1::::<>Node2D<><>0<>0<><>::
+main_menu.tscn::PackedScene::1159534563319415693::1759982999::0::1::::<><><>0<>0<><>::uid://deoyhxk3nrdbm::::res://main_menu.gd
+README.md::TextFile::-1::1759982999::0::1::::<><><>0<>0<><>::
+::res://player/::1759984433
+player.gd::GDScript::996795441345792499::1759984355::0::1::::<>CharacterBody2D<><>0<>0<><>::
+Stickman Spritesheet.png::CompressedTexture2D::35432700474849148::1759982999::1759984433::1::::<><><>0<>0<>ffdc4bfccf64e3f76470caf272d2032a<>res://.godot/imported/Stickman Spritesheet.png-192a12a6787c179b791e300a3f288212.ctex::
+stickman.tscn::PackedScene::7972299168445065888::1759984357::0::1::::<><><>0<>0<><>::uid://og4ctbaq3du6::::res://player/player.gd
