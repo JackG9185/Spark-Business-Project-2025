@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlt3uqsdvgvsi"]
+
+[ext_resource type="Script" uid="uid://og4ctbaq3du6" path="res://player/player.gd" id="1_heo7t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_heo7t"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+collision_mask = 0
+motion_mode = 1
+script = ExtResource("1_heo7t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_heo7t")
+
+[node name="invulnerablility" type="Timer" parent="."]
+one_shot = true
+
+[node name="dash_cooldown" type="Timer" parent="."]
+one_shot = true
