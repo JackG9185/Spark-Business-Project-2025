@@ -5,6 +5,7 @@
 [node name="world" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3.5, 3.5)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_80nbo")]
 position = Vector2(-12, -3)
