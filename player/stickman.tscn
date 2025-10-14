@@ -1,17 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://dlt3uqsdvgvsi"]
+[gd_scene load_steps=12 format=3 uid="uid://dlt3uqsdvgvsi"]
 
 [ext_resource type="Script" uid="uid://og4ctbaq3du6" path="res://player/player.gd" id="1_kr24v"]
-<<<<<<< Updated upstream
-=======
-[ext_resource type="Texture2D" uid="uid://rftoskpaxhc" path="res://player/Stickman Spritesheet.png" id="2_kr24v"]
->>>>>>> Stashed changes
 [ext_resource type="Texture2D" uid="uid://cusb4njw4a4o7" path="res://gun.png" id="3_kr24v"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xfhct"]
 load_path = "res://.godot/imported/Stickman Spritesheet.png-192a12a6787c179b791e300a3f288212.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kr24v"]
-<<<<<<< Updated upstream
 atlas = SubResource("CompressedTexture2D_xfhct")
 region = Rect2(32, 32, 32, 32)
 
@@ -33,29 +28,6 @@ region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rrk24"]
 atlas = SubResource("CompressedTexture2D_xfhct")
-=======
-atlas = ExtResource("2_kr24v")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c1y58"]
-atlas = ExtResource("2_kr24v")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_v5tpi"]
-atlas = ExtResource("2_kr24v")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_atsd2"]
-atlas = ExtResource("2_kr24v")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4bjop"]
-atlas = ExtResource("2_kr24v")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rrk24"]
-atlas = ExtResource("2_kr24v")
->>>>>>> Stashed changes
 region = Rect2(32, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6jiok"]
@@ -96,9 +68,7 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_heo7t"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kr24v"]
-
-[node name="stickman" type="CharacterBody2D"]
+[node name="CharacterBody2D" type="CharacterBody2D"]
 collision_mask = 0
 motion_mode = 1
 script = ExtResource("1_kr24v")
@@ -110,7 +80,6 @@ sprite_frames = SubResource("SpriteFrames_6jiok")
 animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("RectangleShape2D_heo7t")
 debug_color = Color(0, 0.6, 0.69803923, 0.14509805)
 
@@ -125,12 +94,3 @@ position = Vector2(0, -7.0000005)
 scale = Vector2(3, 3)
 texture = ExtResource("3_kr24v")
 offset = Vector2(5, 0)
-
-[node name="hitbox" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-shape = SubResource("RectangleShape2D_kr24v")
-
-[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

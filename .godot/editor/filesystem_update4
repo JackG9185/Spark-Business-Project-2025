@@ -1,6 +1,3 @@
-res://enemy.tscn
 res://player/stickman.tscn
-res://enemy.gd
 res://game.tscn
 res://player/player.gd
-res://bullet.tscn
