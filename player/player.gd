@@ -92,7 +92,6 @@ func dead():
 	pass
 
 func _physics_process(delta: float) -> void:
-	print(inv_timer.is_stopped())
 	
 	get_input_vector()
 	get_mouse()

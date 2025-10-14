@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1760414873
+::res://::1760416000
 bullet.gd::GDScript::3478014921708772306::1759897508::0::1::::<>CharacterBody2D<><>0<>0<><>::
 bullet.tscn::PackedScene::5462975475764940434::1759897508::0::1::::<><><>0<>0<><>::uid://bps1nrv5322ck::::res://bullet.gd
 game.tscn::PackedScene::7295486226678423350::1760414873::0::1::::<><><>0<>0<><>::uid://dlt3uqsdvgvsi::::res://player/stickman.tscn
@@ -8,9 +8,13 @@ icon.svg::CompressedTexture2D::1334540343803933718::1760414873::1760413470::1:::
 main.tscn::PackedScene::7295486226678423350::1759897508::0::1::::<><><>0<>0<><>::
 main_menu.gd::GDScript::7470389647347332370::1759897508::0::1::::<>Node2D<><>0<>0<><>::
 main_menu.tscn::PackedScene::1159534563319415693::1759897508::0::1::::<><><>0<>0<><>::uid://deoyhxk3nrdbm::::res://main_menu.gd
+player.gd::GDScript::996795441345792499::1760415794::0::1::::<>CharacterBody2D<><>0<>0<><>::
 README.md::TextFile::-1::1760414873::0::1::::<><><>0<>0<><>::
 Stickman Spritesheet.png::CompressedTexture2D::35432700474849148::1760414873::1760415117::1::::<><><>0<>0<>b6348855a236ba811f1a2170058dd426<>res://.godot/imported/Stickman Spritesheet.png-0b6c16b01d86c18a7fc81c53e88e635b.ctex::
 Stickman Spritesheet_gun.png::CompressedTexture2D::4272387230710491133::1760414873::1760415117::1::::<><><>0<>0<>c65409f4931a1493f0ed6b5c86f4483d<>res://.godot/imported/Stickman Spritesheet_gun.png-5fb148b6a1732dd09a0a90ef605f8d8d.ctex::
-::res://player/::1760414873
+stickman.tscn::PackedScene::7972299168445065888::1760415794::0::1::::<><><>0<>0<><>::uid://og4ctbaq3du6::::res://player/player.gd<>uid://rftoskpaxhc::::res://player/Stickman Spritesheet.png
+::res://player/::1760415794
 player.gd::GDScript::996795441345792499::1760414873::0::1::::<>CharacterBody2D<><>0<>0<><>::
+Stickman Gun Spritesheet (1).png::CompressedTexture2D::3822562165603193053::1760415794::1760416000::1::::<><><>0<>0<>227139e568708dcc0f9777e1924a2efd<>res://.godot/imported/Stickman Gun Spritesheet (1).png-1e6fdcea7bf2304b95a2ded033858c0d.ctex::
+Stickman Spritesheet.png::CompressedTexture2D::35432700474849148::1760415794::1760415794::1::::<><><>0<>0<>3e56a3e6660cf2b891042398d8f1e89f<>res://.godot/imported/Stickman Spritesheet.png-192a12a6787c179b791e300a3f288212.ctex::
 stickman.tscn::PackedScene::7972299168445065888::1760414873::0::1::::<><><>0<>0<><>::uid://og4ctbaq3du6::::res://player/player.gd<>uid://rftoskpaxhc::::res://Stickman Spritesheet.png<>uid://cusb4njw4a4o7::::res://gun.png
