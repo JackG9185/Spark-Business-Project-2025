@@ -92,7 +92,6 @@ func dead():
 	pass
 
 func _physics_process(delta: float) -> void:
-	
 	get_input_vector()
 	get_mouse()
 	do_debug_col()
