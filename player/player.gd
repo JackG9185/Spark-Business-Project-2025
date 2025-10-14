@@ -8,6 +8,7 @@ var acc = 80
 var mouse_pos : Vector2
 var angle_to_mouse : float
 var state = state_enum.move
+var dmg = 10
 
 #define nodes on ready so they load in time
 @onready var inv_timer = $invulnerablility
@@ -50,11 +51,11 @@ func get_mouse():
 	mouse_pos = get_global_mouse_position()
 	angle_to_mouse = (global_position - mouse_pos).angle() - PI/2
 
-func take_damage(dmg, inv, source_pos):
+func take_damage(dmg, inv, source_vel):
 	if inv_timer.is_stopped():
 		inv_timer.start(inv) #do i-frames
 		health -= dmg
-		velocity += Vector2(0,400).rotated((global_position - source_pos).angle() - PI/2) #knockback
+		velocity += source_vel.normalized() * 1500 #knockback
 
 func dash():
 	if inv_timer.time_left < 0.2:
@@ -103,3 +104,8 @@ func _physics_process(delta: float) -> void:
 			move()
 		state_enum.dead:
 			dead()
+
+
+func _on_hitbox_body_entered(body: Node2D) -> void:
+	print("YEOOOOWWWWWCH")
+	take_damage(body.dmg, 0.4 ,body.velocity)
