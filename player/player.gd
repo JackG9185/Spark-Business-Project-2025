@@ -42,7 +42,7 @@ func do_movement():
 func shoot():
 	var instance = proj.instantiate()
 	instance.dir = angle_to_mouse
-	instance.spawnPos = global_position + Vector2(0,-40).rotated(angle_to_mouse)
+	instance.spawnPos = global_position + Vector2(0,-40).rotated(angle_to_mouse)+Vector2(0,-abs(5*sin(angle_to_mouse)))
 	instance.spawnRot = angle_to_mouse
 	main.add_child.call_deferred(instance)
 
