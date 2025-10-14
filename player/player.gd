@@ -14,6 +14,8 @@ var state = state_enum.move
 @onready var dash_cooldown = $dash_cooldown
 @onready var proj = load("res://bullet.tscn")
 @onready var main = get_tree().root
+@onready var animator = $AnimatedSprite2D
+@onready var gun_sprite = $Gun
 
 #state machine to execute certain functions when the player is in a matching state
 enum state_enum {
@@ -40,7 +42,7 @@ func do_movement():
 func shoot():
 	var instance = proj.instantiate()
 	instance.dir = angle_to_mouse
-	instance.spawnPos = global_position
+	instance.spawnPos = global_position + Vector2(0,-40).rotated(angle_to_mouse)
 	instance.spawnRot = angle_to_mouse
 	main.add_child.call_deferred(instance)
 
@@ -66,6 +68,19 @@ func do_debug_col(): #displays when the player is invulnerable
 	else:
 		$CollisionShape2D.debug_color = Color("CHARTREUSE", 0.41)
 
+func play_anims():
+	animator.flip_h = mouse_pos.x < global_position.x
+	if input_vector != Vector2.ZERO:
+		animator.play("walk")
+	else:
+		animator.play("stand")
+	
+	if mouse_pos.x < global_position.x:
+		gun_sprite.rotation = angle_to_mouse - PI/2
+		gun_sprite.flip_v = true
+	else:
+		gun_sprite.rotation = angle_to_mouse - PI/2
+		gun_sprite.flip_v = false
 func move():
 	do_movement()
 	if Input.is_action_just_pressed("fire"):
@@ -82,6 +97,8 @@ func _physics_process(delta: float) -> void:
 	get_input_vector()
 	get_mouse()
 	do_debug_col()
+	play_anims()
+	
 	
 	match state: #matches a function to each state and runs it.
 		state_enum.move:

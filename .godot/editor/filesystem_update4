@@ -1,1 +1,2 @@
-res://game.tscn
+res://player/player.gd
+res://player/stickman.tscn

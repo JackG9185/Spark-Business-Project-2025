@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rftoskpaxhc"
-path="res://.godot/imported/Stickman Spritesheet.png-0b6c16b01d86c18a7fc81c53e88e635b.ctex"
+uid="uid://cusb4njw4a4o7"
+path="res://.godot/imported/gun.png-14d3fc499b0981d713f67d163509aeff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Stickman Spritesheet.png"
-dest_files=["res://.godot/imported/Stickman Spritesheet.png-0b6c16b01d86c18a7fc81c53e88e635b.ctex"]
+source_file="res://gun.png"
+dest_files=["res://.godot/imported/gun.png-14d3fc499b0981d713f67d163509aeff.ctex"]
 
 [params]
 

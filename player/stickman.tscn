@@ -1,6 +1,68 @@
-[gd_scene load_steps=3 format=3 uid="uid://dlt3uqsdvgvsi"]
+[gd_scene load_steps=12 format=3 uid="uid://dlt3uqsdvgvsi"]
 
 [ext_resource type="Script" uid="uid://og4ctbaq3du6" path="res://player/player.gd" id="1_heo7t"]
+[ext_resource type="Texture2D" uid="uid://rftoskpaxhc" path="res://Stickman Spritesheet.png" id="2_xfhct"]
+[ext_resource type="Texture2D" uid="uid://cusb4njw4a4o7" path="res://gun.png" id="3_kr24v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kr24v"]
+atlas = ExtResource("2_xfhct")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1y58"]
+atlas = ExtResource("2_xfhct")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5tpi"]
+atlas = ExtResource("2_xfhct")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_atsd2"]
+atlas = ExtResource("2_xfhct")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bjop"]
+atlas = ExtResource("2_xfhct")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrk24"]
+atlas = ExtResource("2_xfhct")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6jiok"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kr24v")
+}],
+"loop": true,
+"name": &"dash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1y58")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5tpi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_atsd2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4bjop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrk24")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_heo7t"]
 
@@ -9,11 +71,24 @@ collision_mask = 0
 motion_mode = 1
 script = ExtResource("1_heo7t")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, 4)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_6jiok")
+animation = &"walk"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_heo7t")
+debug_color = Color(0, 0.6, 0.69803923, 0.14509805)
 
 [node name="invulnerablility" type="Timer" parent="."]
 one_shot = true
 
 [node name="dash_cooldown" type="Timer" parent="."]
 one_shot = true
+
+[node name="Gun" type="Sprite2D" parent="."]
+position = Vector2(0, -7.0000005)
+scale = Vector2(3, 3)
+texture = ExtResource("3_kr24v")
+offset = Vector2(5, 0)
