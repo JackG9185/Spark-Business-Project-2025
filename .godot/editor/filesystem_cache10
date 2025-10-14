@@ -1,21 +1,25 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1760464920
-44-443399_glowing-lights-png-gold-glow-transparent.png::CompressedTexture2D::2542575622225240486::1760464115::1760464933::1::::<><><>0<>0<>c932e2aa223da8b360fadd5b87d40cef<>res://.godot/imported/44-443399_glowing-lights-png-gold-glow-transparent.png-d7eb777e24dd5961ed3fad95b19aac4a.ctex::
-bullet.gd::GDScript::3478014921708772306::1760416915::0::1::::<>CharacterBody2D<><>0<>0<><>::
-bullet.tscn::PackedScene::5462975475764940434::1760464920::0::1::::<><><>0<>0<><>::uid://bps1nrv5322ck::::res://bullet.gd<>uid://cusxjvbej5145::::res://New Piskel-1.png.png<>uid://bchv34qaevyc1::::res://44-443399_glowing-lights-png-gold-glow-transparent.png
-Enemy Alien (1).png::CompressedTexture2D::8154036650083351872::1760464870::1760464933::1::::<><><>0<>0<>0af0f3630994cc435747b222a4fccd3c<>res://.godot/imported/Enemy Alien (1).png-400d69919ac60b0c9425efee9c8cc6a4.ctex::
-game.tscn::PackedScene::7295486226678423350::1760464920::0::1::::<><><>0<>0<><>::uid://dlt3uqsdvgvsi::::res://player/stickman.tscn<>uid://cxjvwtm2o8fkd::::res://enemy.tscn
-gun.png::CompressedTexture2D::6213890242481092928::1760416915::1760417203::1::::<><><>0<>0<>fb5bf92dfefa680f0817e707fe4504a4<>res://.godot/imported/gun.png-14d3fc499b0981d713f67d163509aeff.ctex::
-icon.svg::CompressedTexture2D::1334540343803933718::1760416915::1760417203::1::::<><><>0<>0<>578ffec3596eca82e6ccb721b4280934<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-main.tscn::PackedScene::7295486226678423350::1760416915::0::1::::<><><>0<>0<><>::
-main_menu.gd::GDScript::7470389647347332370::1760416915::0::1::::<>Node2D<><>0<>0<><>::
-main_menu.tscn::PackedScene::1159534563319415693::1760416915::0::1::::<><><>0<>0<><>::uid://deoyhxk3nrdbm::::res://main_menu.gd
-New Piskel-1.png.png::CompressedTexture2D::6215190707428834848::1760464115::1760464933::1::::<><><>0<>0<>ee5e4c7063becd4d0e4ca03aeed793e3<>res://.godot/imported/New Piskel-1.png.png-5bd417022c4f3e30e3bd272836ced644.ctex::
-README.md::TextFile::-1::1760416915::0::1::::<><><>0<>0<><>::
-Stickman Spritesheet.png::CompressedTexture2D::6722536283352302402::1760464920::1760464933::1::::<><><>0<>0<>32cbe5b663ec43b7faf25aa36e2b3e2c<>res://.godot/imported/Stickman Spritesheet.png-0b6c16b01d86c18a7fc81c53e88e635b.ctex::
-Stickman Spritesheet_gun.png::CompressedTexture2D::4272387230710491133::1760416915::1760417203::1::::<><><>0<>0<>c65409f4931a1493f0ed6b5c86f4483d<>res://.godot/imported/Stickman Spritesheet_gun.png-5fb148b6a1732dd09a0a90ef605f8d8d.ctex::
-::res://player/::1760464920
-player.gd::GDScript::996795441345792499::1760464920::0::1::::<>CharacterBody2D<><>0<>0<><>::
-Stickman Gun Spritesheet (1).png::CompressedTexture2D::3822562165603193053::1760416915::1760417203::1::::<><><>0<>0<>227139e568708dcc0f9777e1924a2efd<>res://.godot/imported/Stickman Gun Spritesheet (1).png-1e6fdcea7bf2304b95a2ded033858c0d.ctex::
-Stickman Spritesheet.png::CompressedTexture2D::35432700474849148::1760464115::1760464933::1::::<><><>0<>0<>ffdc4bfccf64e3f76470caf272d2032a<>res://.godot/imported/Stickman Spritesheet.png-192a12a6787c179b791e300a3f288212.ctex::
-stickman.tscn::PackedScene::7972299168445065888::1760464920::0::1::::<><><>0<>0<><>::uid://og4ctbaq3du6::::res://player/player.gd
+::res://::1760465512
+44-443399_glowing-lights-png-gold-glow-transparent.png::CompressedTexture2D::2542575622225240486::1760464148::1760464244::1::::<><><>0<>0<>c932e2aa223da8b360fadd5b87d40cef<>res://.godot/imported/44-443399_glowing-lights-png-gold-glow-transparent.png-d7eb777e24dd5961ed3fad95b19aac4a.ctex::
+bullet.gd::GDScript::3478014921708772306::1760464148::0::1::::<>CharacterBody2D<><>0<>0<><>::
+bullet.tscn::PackedScene::5462975475764940434::1760465512::0::1::::<><><>0<>0<><>::uid://bps1nrv5322ck::::res://bullet.gd<>uid://cusxjvbej5145::::res://New Piskel-1.png.png<>uid://bchv34qaevyc1::::res://44-443399_glowing-lights-png-gold-glow-transparent.png
+Enemy Alien (1).png::CompressedTexture2D::8154036650083351872::1760465512::1760465518::1::::<><><>0<>0<>0af0f3630994cc435747b222a4fccd3c<>res://.godot/imported/Enemy Alien (1).png-400d69919ac60b0c9425efee9c8cc6a4.ctex::
+enemy.gd::GDScript::-1::1760465512::0::1::::<>CharacterBody2D<><>0<>0<><>::
+enemy.tscn::PackedScene::-1::1760465512::0::1::::<><><>0<>0<><>::
+game.tscn::PackedScene::7295486226678423350::1760465512::0::1::::<><><>0<>0<><>::uid://dlt3uqsdvgvsi::::res://player/stickman.tscn<>uid://cxl701hxgc2::::res://camera_2d.gd
+gun.png::CompressedTexture2D::6213890242481092928::1760464148::1760464148::1::::<><><>0<>0<>fb5bf92dfefa680f0817e707fe4504a4<>res://.godot/imported/gun.png-14d3fc499b0981d713f67d163509aeff.ctex::
+icon.svg::CompressedTexture2D::1334540343803933718::1760464148::1760464148::1::::<><><>0<>0<>578ffec3596eca82e6ccb721b4280934<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+main.tscn::PackedScene::7295486226678423350::1760464148::0::1::::<><><>0<>0<><>::
+main_menu.gd::GDScript::7470389647347332370::1760464148::0::1::::<>Node2D<><>0<>0<><>::
+main_menu.tscn::PackedScene::1159534563319415693::1760464148::0::1::::<><><>0<>0<><>::uid://deoyhxk3nrdbm::::res://main_menu.gd
+New Piskel-1.png.png::CompressedTexture2D::6215190707428834848::1760464148::1760464244::1::::<><><>0<>0<>ee5e4c7063becd4d0e4ca03aeed793e3<>res://.godot/imported/New Piskel-1.png.png-5bd417022c4f3e30e3bd272836ced644.ctex::
+README.md::TextFile::-1::1760464148::0::1::::<><><>0<>0<><>::
+Stickman Spritesheet.png::CompressedTexture2D::6722536283352302402::1760464148::1760465518::1::::<><><>0<>0<>32cbe5b663ec43b7faf25aa36e2b3e2c<>res://.godot/imported/Stickman Spritesheet.png-0b6c16b01d86c18a7fc81c53e88e635b.ctex::
+Stickman Spritesheet_gun.png::CompressedTexture2D::4272387230710491133::1760464148::1760464148::1::::<><><>0<>0<>c65409f4931a1493f0ed6b5c86f4483d<>res://.godot/imported/Stickman Spritesheet_gun.png-5fb148b6a1732dd09a0a90ef605f8d8d.ctex::
+UFO Enemy.png::CompressedTexture2D::22534718110464435::1760465512::1760465518::1::::<><><>0<>0<>63ea747eea611d4888658a822519f58c<>res://.godot/imported/UFO Enemy.png-8f27ff203def67ec388675e82ae7989c.ctex::
+UFO Ray.png::CompressedTexture2D::1681721938592201350::1760465512::1760465518::1::::<><><>0<>0<>ea9f9e68a7fecbeea0b916bc6948818c<>res://.godot/imported/UFO Ray.png-1ad037720ebf8f9e0948867a8278dece.ctex::
+::res://player/::1760465512
+player.gd::GDScript::996795441345792499::1760465512::0::1::::<>CharacterBody2D<><>0<>0<><>::
+Stickman Gun Spritesheet (1).png::CompressedTexture2D::3822562165603193053::1760464148::1760464148::1::::<><><>0<>0<>227139e568708dcc0f9777e1924a2efd<>res://.godot/imported/Stickman Gun Spritesheet (1).png-1e6fdcea7bf2304b95a2ded033858c0d.ctex::
+Stickman Spritesheet.png::CompressedTexture2D::35432700474849148::1760464148::1760464244::1::::<><><>0<>0<>ffdc4bfccf64e3f76470caf272d2032a<>res://.godot/imported/Stickman Spritesheet.png-192a12a6787c179b791e300a3f288212.ctex::
+stickman.tscn::PackedScene::7972299168445065888::1760465512::0::1::::<><><>0<>0<><>::uid://og4ctbaq3du6::::res://player/player.gd<>uid://cusb4njw4a4o7::::res://gun.png
