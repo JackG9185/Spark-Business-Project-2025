@@ -1,3 +1,5 @@
-res://player/stickman.tscn
 res://player/player.gd
+res://player/stickman.tscn
+res://main_menu.tscn
 res://enemy.gd
+res://enemy.tscn

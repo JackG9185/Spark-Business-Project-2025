@@ -8,6 +8,7 @@ var acc = 20
 func move():
 	velocity = velocity.move_toward((player.global_position - global_position).normalized() * spd,acc)
 	#position.move_toward(player.position, spd)
+	$AnimatedSprite2D.play("walk")
 
 func damage():
 	health -= player.dmg

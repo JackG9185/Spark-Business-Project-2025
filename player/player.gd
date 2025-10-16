@@ -60,12 +60,15 @@ func take_damage(dmg, inv, source_vel):
 		inv_timer.start(inv) #do i-frames
 		health -= dmg
 		velocity += source_vel.normalized() * 1500 #knockback
+		$AnimatedSprite2D.modulate = Color.RED
+		await get_tree().create_timer(0.1).timeout
+		$AnimatedSprite2D.modulate = Color.WHITE
 
 func dash():
 	if inv_timer.time_left < 0.2:
 		inv_timer.start(0.2)
 	dash_cooldown.start(1)
-	velocity = input_vector * 2000
+	velocity = input_vector * speed * 8
 
 func do_debug_col(): #displays when the player is invulnerable
 	if inv_timer.is_stopped():
