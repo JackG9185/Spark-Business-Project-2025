@@ -1,6 +1,6 @@
+Timer
 CollisionShape2D
 Area2D
-Timer
 Button
 CharacterBody2D
 Camera2D

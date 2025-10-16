@@ -1,14 +1,16 @@
 extends CharacterBody2D
 #defining all the variables n stuff
-var health := 100
+var max_hp :=100
+var health := max_hp
 var input_vector
-const SPEED = 200
+var speed = 200
 const FRICTION = 100
 var acc = 80
 var mouse_pos : Vector2
 var angle_to_mouse : float
 var state = state_enum.move
 var dmg := 10
+var sht_spd := 2
 
 #define nodes on ready so they load in time
 @onready var inv_timer = $invulnerablility
@@ -17,7 +19,7 @@ var dmg := 10
 @onready var main = get_tree().root
 @onready var animator = $AnimatedSprite2D
 @onready var gun_sprite = $Gun
-
+@onready var shot_timer = $shoot_timer
 #state machine to execute certain functions when the player is in a matching state
 enum state_enum {
 	move,
@@ -35,12 +37,13 @@ func get_input_vector(): #custom script for essentially getting WASD in all dire
 
 func do_movement():
 	if input_vector != Vector2.ZERO: #if the player IS moving apply velocity
-		velocity = velocity.move_toward(input_vector * SPEED, acc)
+		velocity = velocity.move_toward(input_vector * speed, acc)
 	else: #if the player is NOT moving apply friction
 		velocity = velocity.move_toward(Vector2(0,0),FRICTION)
 	move_and_slide()
 
 func shoot():
+	
 	var instance = proj.instantiate()
 	instance.dir = angle_to_mouse
 	instance.spawnPos = global_position + Vector2(0,-40).rotated(angle_to_mouse)+Vector2(0,-abs(5*sin(angle_to_mouse)))
@@ -84,7 +87,7 @@ func play_anims():
 		gun_sprite.flip_v = false
 func move():
 	do_movement()
-	if Input.is_action_just_pressed("fire"):
+	if Input.is_action_pressed("fire"):
 		shoot()
 	if Input.is_action_just_pressed("dash") and dash_cooldown.is_stopped():
 		dash()
@@ -92,13 +95,18 @@ func move():
 func dead():
 	pass
 
+func update_stats(hp,sp,dm,ss):
+	max_hp = hp
+	speed = sp
+	dmg = dm
+	sht_spd = ss
+
 func _physics_process(delta: float) -> void:
 	get_input_vector()
 	get_mouse()
 	do_debug_col()
 	play_anims()
-	
-	
+	update_stats(100, 200, 10, 2)
 	match state: #matches a function to each state and runs it.
 		state_enum.move:
 			move()

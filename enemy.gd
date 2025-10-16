@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var dmg := 10
 @export var spd := 10
 @onready var player = %stickman
+
 var acc = 20
 func move():
 	velocity = velocity.move_toward((player.global_position - global_position).normalized() * spd,acc)
