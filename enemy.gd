@@ -12,6 +12,9 @@ func move():
 
 func damage():
 	health -= player.dmg
+	$AnimatedSprite2D.modulate = Color.RED
+	await get_tree().create_timer(0.1).timeout
+	$AnimatedSprite2D.modulate = Color.WHITE
 	if health <= 0:
 		queue_free()
 
