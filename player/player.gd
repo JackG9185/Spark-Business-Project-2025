@@ -10,7 +10,7 @@ var mouse_pos : Vector2
 var angle_to_mouse : float
 var state = state_enum.move
 var dmg := 10
-var sht_spd := 2
+var sht_spd = 3
 
 #define nodes on ready so they load in time
 @onready var inv_timer = $invulnerablility
@@ -43,12 +43,13 @@ func do_movement():
 	move_and_slide()
 
 func shoot():
-	
-	var instance = proj.instantiate()
-	instance.dir = angle_to_mouse
-	instance.spawnPos = global_position + Vector2(0,-40).rotated(angle_to_mouse)+Vector2(0,-abs(5*sin(angle_to_mouse)))
-	instance.spawnRot = angle_to_mouse
-	main.add_child.call_deferred(instance)
+	if shot_timer.is_stopped() == true:
+		var instance = proj.instantiate()
+		instance.dir = angle_to_mouse
+		instance.spawnPos = global_position + Vector2(0,-40).rotated(angle_to_mouse)+Vector2(0,-abs(5*sin(angle_to_mouse)))
+		instance.spawnRot = angle_to_mouse
+		main.add_child.call_deferred(instance)
+		shot_timer.start()
 
 func get_mouse():
 	mouse_pos = get_global_mouse_position()
@@ -100,13 +101,14 @@ func update_stats(hp,sp,dm,ss):
 	speed = sp
 	dmg = dm
 	sht_spd = ss
+	shot_timer.wait_time = 1.0/sht_spd
 
 func _physics_process(delta: float) -> void:
 	get_input_vector()
 	get_mouse()
 	do_debug_col()
 	play_anims()
-	update_stats(100, 200, 10, 2)
+	update_stats(100, 200, 10, 3)
 	match state: #matches a function to each state and runs it.
 		state_enum.move:
 			move()
@@ -116,3 +118,4 @@ func _physics_process(delta: float) -> void:
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	take_damage(body.dmg,0.4,body.velocity)
+	

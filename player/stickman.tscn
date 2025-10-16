@@ -76,7 +76,7 @@ motion_mode = 1
 script = ExtResource("1_kr24v")
 
 [node name="shoot_timer" type="Timer" parent="."]
-autostart = true
+one_shot = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, 4)
@@ -107,4 +107,5 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 shape = SubResource("RectangleShape2D_xfhct")
 
+[connection signal="timeout" from="shoot_timer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

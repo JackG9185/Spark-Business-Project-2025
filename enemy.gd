@@ -16,7 +16,6 @@ func damage():
 
 func _physics_process(delta: float) -> void:
 	move()
-	print(health)
 	move_and_slide()
 
 
