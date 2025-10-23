@@ -1,5 +1,10 @@
-res://player/player.gd
+res://game.tscn
 res://player/stickman.tscn
-res://main_menu.tscn
+res://ui.gd
+res://ui.tscn
+res://player/player.gd
+res://enemy_spawner.gd
+res://enemy_spawner.tscn
 res://enemy.gd
-res://enemy.tscn
+res://bullet.tscn
+res://GAMESTATE.gd

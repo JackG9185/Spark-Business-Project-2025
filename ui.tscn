@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3a6idn7jdtb"]
+
+[ext_resource type="Script" uid="uid://domlgsimnvui" path="res://ui.gd" id="1_fyqef"]
+
+[node name="UI" type="CanvasLayer"]
+follow_viewport_enabled = true
+script = ExtResource("1_fyqef")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.8627451, 0.101960786, 0.26666668, 1)
+polygon = PackedVector2Array(68, 0, 68, 58, 0, 58, 0, 0)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="stats_menu" type="Node2D" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="stats_menu"]
+offset_left = -47.0
+offset_right = -7.0
+offset_bottom = 40.0

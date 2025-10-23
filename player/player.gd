@@ -16,7 +16,7 @@ var sht_spd = 3
 @onready var inv_timer = $invulnerablility
 @onready var dash_cooldown = $dash_cooldown
 @onready var proj = load("res://bullet.tscn")
-@onready var main = get_tree().root
+@onready var main = get_tree().current_scene
 @onready var animator = $AnimatedSprite2D
 @onready var gun_sprite = $Gun
 @onready var shot_timer = $shoot_timer
@@ -27,7 +27,7 @@ enum state_enum {
 }
 
 func _ready() -> void:
-	pass
+	Gamestate.player = self
 
 func get_input_vector(): #custom script for essentially getting WASD in all directions, also adds controller support
 	input_vector = Vector2.ZERO
@@ -63,6 +63,8 @@ func take_damage(dmg, inv, source_vel):
 		$AnimatedSprite2D.modulate = Color.RED
 		await get_tree().create_timer(0.1).timeout
 		$AnimatedSprite2D.modulate = Color.WHITE
+		
+		$"../UI".update_ui("hp",health)
 
 func dash():
 	if inv_timer.time_left < 0.2:
