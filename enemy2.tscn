@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmst7uq7pomeu"]
+
+[ext_resource type="Script" uid="uid://cxrhrjhsy8p7t" path="res://enemy_2.gd" id="1_jugo2"]
+[ext_resource type="Texture2D" uid="uid://k6e45yfby80" path="res://UFO Enemy.png" id="2_jugo2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qi2p4"]
+radius = 17.464249
+
+[node name="enemy2" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_jugo2")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4gyqm")
+debug_color = Color(0.83055764, 0.3935394, 0, 0.41960785)
+
+[node name="bullet_detector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="detector_col" type="CollisionShape2D" parent="bullet_detector"]
+shape = SubResource("CircleShape2D_qi2p4")
+debug_color = Color(0.9098039, 0, 0.7294118, 0.25882354)
+
+[node name="AnimatedSprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2.21875, 2.21875)
+texture = ExtResource("2_jugo2")
+
+[connection signal="body_entered" from="bullet_detector" to="." method="_on_bullet_detector_body_entered"]
