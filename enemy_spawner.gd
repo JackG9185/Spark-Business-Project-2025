@@ -2,20 +2,26 @@ extends Node2D
 @onready var enemy1 = load("res://enemy.tscn")
 @onready var enemy2 = load("res://enemy2.tscn")
 @onready var main = get_tree().current_scene
-
+var n = 0
+var canSpawn := false
+const range = 300
+var wave1 = {
+	"enemy": 10,
+	"enemy2": 4
+}
 func _ready() -> void:
-	$Timer.start()
+	start_wave(1, wave1)
 
 func spawn_enemy(type, mod):
 	if type == "enemy":
 		var instance = enemy1.instantiate()
-		instance.global_position = %stickman.global_position + Vector2(randi_range(-1000,1000),randi_range(-1000,1000))
+		instance.global_position = %stickman.global_position + Vector2(randi_range(-range,range),randi_range(-range,range))
 		#%stickman.global_position = instance.global_position
 		main.add_child.call_deferred(instance)
 		print(instance.global_position)
 	if type == "enemy2":
 		var instance = enemy2.instantiate()
-		instance.global_position = %stickman.global_position + Vector2(randi_range(-500,500),randi_range(-500,500))
+		instance.global_position = %stickman.global_position + Vector2(randi_range(-range/2,range/2),randi_range(-range/2,range/2))
 		#%stickman.global_position = instance.global_position
 		main.add_child.call_deferred(instance)
 		print(instance.global_position)
@@ -26,4 +32,17 @@ func _physics_process(delta: float) -> void:
 		$Timer.start()
 
 func _on_timer_timeout() -> void:
-	spawn_enemy("enemy2",1)
+	do_wave(1, wave1)
+	if canSpawn:
+		n -= 1
+		spawn_enemy("enemy2",1)
+
+func start_wave(rate, types):
+	$Timer.wait_time = rate
+	$Timer.start()
+
+func do_wave(mod, types):
+	for i in wave1:
+		if wave1[i] > 0:
+			spawn_enemy(i,1)
+			wave1[i] -= 1

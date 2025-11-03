@@ -1,7 +1,7 @@
 extends CharacterBody2D
 @export var health := 100
 @export var dmg := 10
-@export var spd := 10
+@export var spd := 60
 
 var acc = 20
 func move():
