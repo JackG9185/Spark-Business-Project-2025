@@ -54,7 +54,7 @@ Shoot - Left Mouse Button
 
 Dash - Space Bar
 
-Aim - Mouse"
+Pause - Escape"
 label_settings = SubResource("LabelSettings_urwwa")
 metadata/_edit_use_anchors_ = true
 
