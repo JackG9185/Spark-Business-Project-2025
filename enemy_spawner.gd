@@ -2,6 +2,7 @@ extends Node2D
 @onready var enemy1 = load("res://enemy.tscn")
 @onready var enemy2 = load("res://enemy2.tscn")
 @onready var main = get_tree().current_scene
+var wave_num = 0
 var n = 0
 var canSpawn := false
 const range = 300
@@ -38,8 +39,10 @@ func _on_timer_timeout() -> void:
 		spawn_enemy("enemy2",1)
 
 func start_wave(rate, types):
+	wave_num += 1
 	$Timer.wait_time = rate
 	$Timer.start()
+	$"../UI/Wave".text = "Wave: " + str(wave_num)
 
 func do_wave(mod, types):
 	for i in wave1:
