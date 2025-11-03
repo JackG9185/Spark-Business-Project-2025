@@ -43,14 +43,16 @@ func do_movement():
 	move_and_slide()
 
 func shoot():
-	if shot_timer.is_stopped() == true:
-		var instance = proj.instantiate()
-		instance.dir = angle_to_mouse
-		instance.spawnPos = global_position + Vector2(0,-40).rotated(angle_to_mouse)+Vector2(0,-abs(5*sin(angle_to_mouse)))
-		instance.spawnRot = angle_to_mouse
-		main.add_child.call_deferred(instance)
-		shot_timer.start()
+	if !$"..".paused:
+		if shot_timer.is_stopped() == true:
+			var instance = proj.instantiate()
+			instance.dir = angle_to_mouse
+			instance.spawnPos = global_position + Vector2(0,-40).rotated(angle_to_mouse)+Vector2(0,-abs(5*sin(angle_to_mouse)))
+			instance.spawnRot = angle_to_mouse
+			main.add_child.call_deferred(instance)
+			shot_timer.start()
 
+	
 func get_mouse():
 	mouse_pos = get_global_mouse_position()
 	angle_to_mouse = (global_position - mouse_pos).angle() - PI/2

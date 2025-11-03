@@ -9,7 +9,7 @@ func _ready():
 	# Get the player (assumes it's called "Player" and is a sibling or somewhere accessible)
 	player = %stickman  # Adjust the path as needed
 
-func _process(delta):
+func _physics_process(delta):
 	if not player:
 		return
 
@@ -23,4 +23,5 @@ func _process(delta):
 	var target_pos = player_pos.lerp(mouse_pos, camera_bias)
 
 	# Set the camera position
-	global_position = target_pos
+	if !$"..".paused:
+		global_position = target_pos
