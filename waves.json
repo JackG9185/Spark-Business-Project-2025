@@ -1,16 +1,34 @@
 {
 	"waves": [
 		{
-			"enemy": 10,
-			"enemy2": 4,
+			"name": "Wave 1 - The Beginning",
+			"spawn_rate": 1.0,
+			"enemy": 8,
+			"enemy2": 3
 		},
 		{
-			"enemy": 10,
-			"enemy2": 4,
+			"name": "Wave 2 - Rising Threat",
+			"spawn_rate": 0.9,
+			"enemy": 12,
+			"enemy2": 5
 		},
 		{
-			"enemy": 10,
-			"enemy2": 4,
+			"name": "Wave 3 - Escalation",
+			"spawn_rate": 0.8,
+			"enemy": 15,
+			"enemy2": 8
+		},
+		{
+			"name": "Wave 4 - Heavy Assault",
+			"spawn_rate": 0.7,
+			"enemy": 18,
+			"enemy2": 10
+		},
+		{
+			"name": "Wave 5 - Final Stand",
+			"spawn_rate": 0.6,
+			"enemy": 25,
+			"enemy2": 15
 		}
 	]
 }

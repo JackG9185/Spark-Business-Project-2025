@@ -58,12 +58,23 @@ func _on_timer_timeout() -> void:
 
 func start_wave(rate, types):
 	for type in types:
-		left += types[type]
+		if type != "name" and type != "spawn_rate":
+			left += types[type]
 
 	wave_num += 1
-	$Timer.wait_time = rate
+	# Use spawn_rate from wave data if available, otherwise use the rate parameter
+	if "spawn_rate" in types:
+		$Timer.wait_time = types["spawn_rate"]
+	else:
+		$Timer.wait_time = rate
 	$Timer.start()
-	$"../UI/Wave".text = "Wave: " + str(wave_num) + "\n" + "Enemies Left: " + str(left)
+	
+	# Display wave name if available
+	var wave_text = "Wave: " + str(wave_num)
+	if "name" in types:
+		wave_text += " - " + types["name"].replace("Wave " + str(wave_num) + " - ", "")
+	wave_text += "\n" + "Enemies Left: " + str(left)
+	$"../UI/Wave".text = wave_text
 
 func enemy_killed():
 	left -= 1
@@ -71,6 +82,6 @@ func enemy_killed():
 
 func do_wave(mod, types):
 	for i in types:
-		if types[i] > 0:
+		if i != "name" and i != "spawn_rate" and types[i] > 0:
 			spawn_enemy(i,1)
 			types[i] -= 1
