@@ -11,10 +11,6 @@ var canSpawn := false
 const range = 300
 var wave_file = {}
 var current_wave_data = {}  # Working copy of current wave data
-var wave1 = {
-	"enemy": 10,
-	"enemy2": 4
-}
 # Metadata fields that should be excluded from enemy counting
 const METADATA_FIELDS = ["name", "spawn_rate"]
 
@@ -79,10 +75,10 @@ func start_wave(rate, types):
 	var wave_text = "Wave: " + str(wave_num)
 	if "name" in types:
 		var wave_name = types["name"]
-		# Extract the descriptive part after " - " if present
-		var parts = wave_name.split(" - ", true, 1)
-		if parts.size() > 1:
-			wave_text += " - " + parts[1]
+		# Extract descriptive part after " - " if present, otherwise use full name
+		var separator_pos = wave_name.find(" - ")
+		if separator_pos >= 0:
+			wave_text += " - " + wave_name.substr(separator_pos + 3)
 		else:
 			wave_text += " - " + wave_name
 	wave_text += "\n" + "Enemies Left: " + str(left)
