@@ -60,7 +60,7 @@ func start_wave(rate, types):
 	current_wave_data = types.duplicate()
 	
 	for type in types:
-		if not type in METADATA_FIELDS:
+		if type not in METADATA_FIELDS:
 			left += types[type]
 
 	wave_num += 1
@@ -90,6 +90,6 @@ func enemy_killed():
 
 func do_wave(mod, types):
 	for i in types:
-		if not i in METADATA_FIELDS and types[i] > 0:
+		if i not in METADATA_FIELDS and types[i] > 0:
 			spawn_enemy(i,1)
 			types[i] -= 1
