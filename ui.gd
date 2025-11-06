@@ -1,7 +1,9 @@
 extends CanvasLayer
 var health_pos := 0.0
 var target_health_pos := 0.0
+var wave = 0
 func _ready() -> void:
+	$Wave.text = "Wave: " + str(wave)
 	target_health_pos = %stickman.health * 5
 	$Polygon2D.polygon[1].x = %stickman.health * 5
 	$Polygon2D.polygon[0].x = %stickman.health * 5

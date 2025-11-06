@@ -22,3 +22,7 @@ offset_bottom = 40.0
 offset_left = -47.0
 offset_right = -7.0
 offset_bottom = 40.0
+
+[node name="Wave" type="RichTextLabel" parent="."]
+offset_right = 325.0
+offset_bottom = 40.0
