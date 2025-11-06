@@ -9,7 +9,7 @@ var acc = 80
 var mouse_pos : Vector2
 var angle_to_mouse : float
 var state = state_enum.move
-var dmg := 10
+var dmg := 50
 var sht_spd = 3
 
 #define nodes on ready so they load in time
@@ -115,7 +115,7 @@ func _physics_process(delta: float) -> void:
 	get_mouse()
 	do_debug_col()
 	play_anims()
-	update_stats(100, 200, 10, 3)
+	update_stats(100, 200, dmg, 3)
 	match state: #matches a function to each state and runs it.
 		state_enum.move:
 			move()

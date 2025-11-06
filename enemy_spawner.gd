@@ -19,13 +19,11 @@ func spawn_enemy(type, mod):
 		instance.global_position = %stickman.global_position + Vector2(randi_range(-range,range),randi_range(-range,range))
 		#%stickman.global_position = instance.global_position
 		main.add_child.call_deferred(instance)
-		print(instance.global_position)
 	if type == "enemy2":
 		var instance = enemy2.instantiate()
 		instance.global_position = %stickman.global_position + Vector2(randi_range(-range/2,range/2),randi_range(-range/2,range/2))
 		#%stickman.global_position = instance.global_position
 		main.add_child.call_deferred(instance)
-		print(instance.global_position)
 
 func _physics_process(delta: float) -> void:
 	if $Timer.is_stopped():
