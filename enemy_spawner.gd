@@ -10,10 +10,13 @@ var n = 0
 var canSpawn := false
 const range = 300
 var wave_file = {}
+var current_wave_data = {}  # Working copy of current wave data
 var wave1 = {
 	"enemy": 10,
 	"enemy2": 4
 }
+# Metadata fields that should be excluded from enemy counting
+const METADATA_FIELDS = ["name", "spawn_rate"]
 
 func load_json(filePath):
 	if FileAccess.file_exists(filePath):
@@ -51,14 +54,17 @@ func _physics_process(delta: float) -> void:
 		$Timer.start()
 
 func _on_timer_timeout() -> void:
-	do_wave(1, wave_file["waves"][wave_num])
+	do_wave(1, current_wave_data)
 	if canSpawn:
 		n -= 1
 		spawn_enemy("enemy2",1)
 
 func start_wave(rate, types):
+	# Create a working copy of the wave data to avoid modifying the original
+	current_wave_data = types.duplicate()
+	
 	for type in types:
-		if type != "name" and type != "spawn_rate":
+		if not type in METADATA_FIELDS:
 			left += types[type]
 
 	wave_num += 1
@@ -72,7 +78,12 @@ func start_wave(rate, types):
 	# Display wave name if available
 	var wave_text = "Wave: " + str(wave_num)
 	if "name" in types:
-		wave_text += " - " + types["name"].replace("Wave " + str(wave_num) + " - ", "")
+		var wave_name = types["name"]
+		# Extract the descriptive part after " - " if present
+		if " - " in wave_name:
+			wave_text += " - " + wave_name.split(" - ", true, 1)[1]
+		else:
+			wave_text += " - " + wave_name
 	wave_text += "\n" + "Enemies Left: " + str(left)
 	$"../UI/Wave".text = wave_text
 
@@ -82,6 +93,6 @@ func enemy_killed():
 
 func do_wave(mod, types):
 	for i in types:
-		if i != "name" and i != "spawn_rate" and types[i] > 0:
+		if not i in METADATA_FIELDS and types[i] > 0:
 			spawn_enemy(i,1)
 			types[i] -= 1
