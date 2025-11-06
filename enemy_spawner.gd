@@ -80,8 +80,9 @@ func start_wave(rate, types):
 	if "name" in types:
 		var wave_name = types["name"]
 		# Extract the descriptive part after " - " if present
-		if " - " in wave_name:
-			wave_text += " - " + wave_name.split(" - ", true, 1)[1]
+		var parts = wave_name.split(" - ", true, 1)
+		if parts.size() > 1:
+			wave_text += " - " + parts[1]
 		else:
 			wave_text += " - " + wave_name
 	wave_text += "\n" + "Enemies Left: " + str(left)
