@@ -1,0 +1,16 @@
+{
+	"waves": [
+		{
+			"enemy": 10,
+			"enemy2": 4,
+		},
+		{
+			"enemy": 10,
+			"enemy2": 4,
+		},
+		{
+			"enemy": 10,
+			"enemy2": 4,
+		}
+	]
+}

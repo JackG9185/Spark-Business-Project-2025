@@ -2,16 +2,36 @@ extends Node2D
 @onready var enemy1 = load("res://enemy.tscn")
 @onready var enemy2 = load("res://enemy2.tscn")
 @onready var main = get_tree().current_scene
+
+var left := 0
+var wave_data_path = "res://waves.json"
 var wave_num = 0
 var n = 0
 var canSpawn := false
 const range = 300
+var wave_file = {}
 var wave1 = {
 	"enemy": 10,
 	"enemy2": 4
 }
+
+func load_json(filePath):
+	if FileAccess.file_exists(filePath):
+		var dataFile = FileAccess.open(filePath,FileAccess.READ)
+		var parsedResult = JSON.parse_string(dataFile.get_as_text())
+		if parsedResult is Dictionary:
+			return parsedResult
+		else:
+			print("error reading file :(")
+	else:
+		print("Nope! Try a file that exists next time!")
+
 func _ready() -> void:
-	start_wave(1, wave1)
+	Gamestate.spawner = self
+	
+	wave_file = load_json(wave_data_path)
+	#print(wave_file["waves"][0])
+	start_wave(1, wave_file["waves"][wave_num])
 
 func spawn_enemy(type, mod):
 	if type == "enemy":
@@ -31,19 +51,26 @@ func _physics_process(delta: float) -> void:
 		$Timer.start()
 
 func _on_timer_timeout() -> void:
-	do_wave(1, wave1)
+	do_wave(1, wave_file["waves"][wave_num])
 	if canSpawn:
 		n -= 1
 		spawn_enemy("enemy2",1)
 
 func start_wave(rate, types):
+	for type in types:
+		left += types[type]
+
 	wave_num += 1
 	$Timer.wait_time = rate
 	$Timer.start()
-	$"../UI/Wave".text = "Wave: " + str(wave_num)
+	$"../UI/Wave".text = "Wave: " + str(wave_num) + "\n" + "Enemies Left: " + str(left)
+
+func enemy_killed():
+	left -= 1
+	$"../UI".update_enemy_count()
 
 func do_wave(mod, types):
-	for i in wave1:
-		if wave1[i] > 0:
+	for i in types:
+		if types[i] > 0:
 			spawn_enemy(i,1)
-			wave1[i] -= 1
+			types[i] -= 1

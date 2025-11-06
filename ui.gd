@@ -15,7 +15,8 @@ func update_ui(stat, num):
 func pause():
 	Engine.time_scale = 0.0
 	
-
+func update_enemy_count():
+	$Wave.text = "Wave: " + str(Gamestate.spawner.wave_num) + "\n" + "Enemies Left: " + str(Gamestate.spawner.left)
 func _physics_process(delta: float) -> void:
 	health_pos = lerp(health_pos,target_health_pos, 0.4)
 	$Polygon2D.polygon[1].x = health_pos
