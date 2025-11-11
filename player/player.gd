@@ -1,7 +1,6 @@
 extends CharacterBody2D
 #defining all the variables n stuff
 var max_hp :=100
-var max_hp := 100
 var health := max_hp
 var input_vector
 var speed = 200
@@ -68,12 +67,8 @@ func take_damage(dmg, inv, source_vel):
 		$AnimatedSprite2D.modulate = Color.WHITE
 		
 		$"../UI".update_ui("hp",health)
-<<<<<<< Updated upstream
 	if health <= 0:
 		state = state_enum.dead
-=======
-		$"../UI".update_health(health, max_hp)
->>>>>>> Stashed changes
 
 func dash():
 	if inv_timer.time_left < 0.2:

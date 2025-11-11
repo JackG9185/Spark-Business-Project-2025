@@ -9,23 +9,15 @@ font_size = 64
 
 [sub_resource type="LabelSettings" id="LabelSettings_m6e0p"]
 font = ExtResource("2_m6e0p")
-<<<<<<< Updated upstream
 font_size = 85
-=======
-font_size = 32
->>>>>>> Stashed changes
 
 [node name="UI" type="CanvasLayer"]
 follow_viewport_enabled = true
 script = ExtResource("1_fyqef")
 
-[node name="Polygon2D2" type="Polygon2D" parent="."]
-color = Color(0.3370503, 0.05443158, 0.15943673, 1)
-polygon = PackedVector2Array(0, 50, 68, 50, 68, 0, 0, 0)
-
 [node name="Polygon2D" type="Polygon2D" parent="."]
 color = Color(0.8627451, 0.101960786, 0.26666668, 1)
-polygon = PackedVector2Array(68, 0, 68, 46, 0, 46, 0, 0)
+polygon = PackedVector2Array(68, 0, 68, 58, 0, 58, 0, 0)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -41,12 +33,10 @@ offset_right = -7.0
 offset_bottom = 40.0
 
 [node name="Wave" type="Label" parent="."]
-offset_top = 50.0
 offset_right = 325.0
-offset_bottom = 114.0
+offset_bottom = 40.0
 label_settings = SubResource("LabelSettings_27fn8")
 
-<<<<<<< Updated upstream
 [node name="death_screen" type="Node2D" parent="."]
 position = Vector2(232, -273)
 
@@ -78,9 +68,4 @@ offset_top = -7.0
 offset_right = 394.0
 offset_bottom = 79.0
 text = "Main Menu"
-=======
-[node name="health" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
->>>>>>> Stashed changes
 label_settings = SubResource("LabelSettings_m6e0p")
