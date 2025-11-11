@@ -67,6 +67,8 @@ func take_damage(dmg, inv, source_vel):
 		$AnimatedSprite2D.modulate = Color.WHITE
 		
 		$"../UI".update_ui("hp",health)
+	if health <= 0:
+		state = state_enum.dead
 
 func dash():
 	if inv_timer.time_left < 0.2:
@@ -94,14 +96,29 @@ func play_anims():
 		gun_sprite.rotation = angle_to_mouse - PI/2
 		gun_sprite.flip_v = false
 func move():
+	play_anims()
 	do_movement()
+	get_mouse()
 	if Input.is_action_pressed("fire"):
 		shoot()
 	if Input.is_action_just_pressed("dash") and dash_cooldown.is_stopped():
 		dash()
 
 func dead():
-	pass
+	if velocity.x != 0:
+		if sign(velocity.x) == -1:
+			animator.flip_h = true
+			animator.rotation = 80
+			$Gun.rotation = 80
+			$Gun.flip_v = true
+		else:
+			animator.flip_h = false
+			animator.rotation = -80
+			$Gun.rotation = -80
+			$Gun.flip_v = false
+	$AnimatedSprite2D.play("stand")
+	$"../UI/death_screen".position.y = lerp($"../UI/death_screen".position.y,143.0,0.05)
+
 
 func update_stats(hp,sp,dm,ss):
 	max_hp = hp
@@ -112,9 +129,7 @@ func update_stats(hp,sp,dm,ss):
 
 func _physics_process(delta: float) -> void:
 	get_input_vector()
-	get_mouse()
 	do_debug_col()
-	play_anims()
 	update_stats(100, 200, dmg, 3)
 	match state: #matches a function to each state and runs it.
 		state_enum.move:

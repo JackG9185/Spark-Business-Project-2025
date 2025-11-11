@@ -25,3 +25,11 @@ func _physics_process(delta: float) -> void:
 	health_pos = lerp(health_pos,target_health_pos, 0.4)
 	$Polygon2D.polygon[1].x = health_pos
 	$Polygon2D.polygon[0].x = health_pos
+
+
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://game.tscn")
+
+
+func _on_button_2_pressed() -> void:
+	get_tree().change_scene_to_file("res://main_menu.tscn")

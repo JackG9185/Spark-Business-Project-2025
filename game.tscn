@@ -28,3 +28,8 @@ follow_viewport_enabled = false
 
 [node name="enemy_spawner" parent="." instance=ExtResource("5_7jktm")]
 position = Vector2(-4, -75)
+
+[connection signal="pressed" from="UI/death_screen/Button" to="UI" method="_on_button_pressed"]
+[connection signal="pressed" from="UI/death_screen/Button2" to="UI" method="_on_button_2_pressed"]
+
+[editable path="UI"]
