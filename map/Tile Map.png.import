@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b01h13hkhwtye"
-path="res://.godot/imported/Stickman Spritesheet.png-192a12a6787c179b791e300a3f288212.ctex"
+uid="uid://btkw53v4cv0uc"
+path="res://.godot/imported/Tile Map.png-b0c356287bd5380c01f9bcbdfb222f98.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/Stickman Spritesheet.png"
-dest_files=["res://.godot/imported/Stickman Spritesheet.png-192a12a6787c179b791e300a3f288212.ctex"]
+source_file="res://map/Tile Map.png"
+dest_files=["res://.godot/imported/Tile Map.png-b0c356287bd5380c01f9bcbdfb222f98.ctex"]
 
 [params]
 

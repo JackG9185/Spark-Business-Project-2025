@@ -23,6 +23,17 @@ Gamestate="*res://GAMESTATE.gd"
 
 window/stretch/mode="canvas_items"
 
+[file_customization]
+
+folder_colors={
+"res://UI/": "blue",
+"res://enemies/": "red",
+"res://map/": "orange",
+"res://menus/": "yellow",
+"res://player/": "green",
+"res://sounds/": "teal"
+}
+
 [input]
 
 input_left={

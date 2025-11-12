@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b01h13hkhwtye"
-path="res://.godot/imported/Stickman Spritesheet.png-192a12a6787c179b791e300a3f288212.ctex"
+uid="uid://cusxjvbej5145"
+path="res://.godot/imported/New Piskel-1.png.png-16ce806791b8d96e9045fc66922416b7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/Stickman Spritesheet.png"
-dest_files=["res://.godot/imported/Stickman Spritesheet.png-192a12a6787c179b791e300a3f288212.ctex"]
+source_file="res://player/bullet/New Piskel-1.png.png"
+dest_files=["res://.godot/imported/New Piskel-1.png.png-16ce806791b8d96e9045fc66922416b7.ctex"]
 
 [params]
 

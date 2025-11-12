@@ -1,0 +1,84 @@
+[gd_scene load_steps=6 format=3 uid="uid://cud447mk06ss"]
+
+[ext_resource type="Script" uid="uid://c4uawpi4ps5gp" path="res://menus/controls/controls_menu.gd" id="1_v34rh"]
+[ext_resource type="FontFile" uid="uid://cxit8lrord42r" path="res://UI/BoldPixels.ttf" id="2_ovn7s"]
+[ext_resource type="Texture2D" uid="uid://p58imic6dgl8" path="res://enemies/1/Alien One Sprite.png" id="3_ovn7s"]
+
+
+[sub_resource type="LabelSettings" id="LabelSettings_urwwa"]
+font = ExtResource("2_ovn7s")
+font_size = 63
+
+[sub_resource type="LabelSettings" id="LabelSettings_2qtxy"]
+font = ExtResource("2_ovn7s")
+font_size = 101
+
+[node name="controls_menu" type="Node2D"]
+script = ExtResource("1_v34rh")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 35.0
+offset_top = 134.0
+offset_right = 834.0
+offset_bottom = 225.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel2" type="Panel" parent="."]
+offset_left = 34.0
+offset_top = 265.0
+offset_right = 833.0
+offset_bottom = 356.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel3" type="Panel" parent="."]
+offset_left = 34.0
+offset_top = 399.0
+offset_right = 833.0
+offset_bottom = 490.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel4" type="Panel" parent="."]
+offset_left = 31.0
+offset_top = 534.0
+offset_right = 830.0
+offset_bottom = 625.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 63.0
+offset_top = 147.0
+offset_right = 800.0
+offset_bottom = 613.0
+text = "Move - WASD
+
+Shoot - Left Mouse Button
+
+Dash - Space Bar
+
+Pause - Escape"
+label_settings = SubResource("LabelSettings_urwwa")
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="."]
+offset_left = 36.0
+offset_top = 22.0
+offset_right = 388.0
+offset_bottom = 115.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Button"]
+layout_mode = 0
+offset_left = 83.0
+offset_top = -5.0
+offset_right = 272.0
+offset_bottom = 97.0
+text = "Back"
+label_settings = SubResource("LabelSettings_2qtxy")
+metadata/_edit_use_anchors_ = true
+
+[node name="AlienOneSprite" type="Sprite2D" parent="."]
+position = Vector2(1014.0001, 357.00003)
+scale = Vector2(14.890625, 14.890625)
+texture = ExtResource("3_ovn7s")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

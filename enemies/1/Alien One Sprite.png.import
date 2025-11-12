@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b01h13hkhwtye"
-path="res://.godot/imported/Stickman Spritesheet.png-192a12a6787c179b791e300a3f288212.ctex"
+uid="uid://p58imic6dgl8"
+path="res://.godot/imported/Alien One Sprite.png-9d21d3c81a4be8d4e81b1762ff65086e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/Stickman Spritesheet.png"
-dest_files=["res://.godot/imported/Stickman Spritesheet.png-192a12a6787c179b791e300a3f288212.ctex"]
+source_file="res://enemies/1/Alien One Sprite.png"
+dest_files=["res://.godot/imported/Alien One Sprite.png-9d21d3c81a4be8d4e81b1762ff65086e.ctex"]
 
 [params]
 
