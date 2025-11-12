@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://dlt3uqsdvgvsi"]
+[gd_scene load_steps=14 format=3 uid="uid://dlt3uqsdvgvsi"]
 
 [ext_resource type="Script" uid="uid://og4ctbaq3du6" path="res://player/player.gd" id="1_kr24v"]
+[ext_resource type="AudioStream" uid="uid://bvgrb55wqhq8a" path="res://sounds/step.wav" id="2_kr24v"]
 [ext_resource type="Texture2D" uid="uid://cusb4njw4a4o7" path="res://gun.png" id="3_kr24v"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xfhct"]
@@ -74,6 +75,9 @@ animations = [{
 collision_mask = 8
 motion_mode = 1
 script = ExtResource("1_kr24v")
+
+[node name="Step" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_kr24v")
 
 [node name="shoot_timer" type="Timer" parent="."]
 one_shot = true

@@ -16,6 +16,7 @@ tile_map_data = PackedByteArray("AAD1//z/AAAAAAAAAAD1//3/AAAAAAAAAAD1//7/AAAAAAA
 
 [node name="stickman" parent="." instance=ExtResource("1_80nbo")]
 unique_name_in_owner = true
+position = Vector2(704, 520)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.5, 1.5)

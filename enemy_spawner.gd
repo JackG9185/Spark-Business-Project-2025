@@ -63,7 +63,8 @@ func start_wave(rate, types):
 	wave_num += 1
 	$Timer.wait_time = rate
 	$Timer.start()
-	$"../UI/Wave".text = "Wave: " + str(wave_num) + "\n" + "Enemies Left: " + str(left)
+	$"../UI/Wave".text = "Wave: " + str(wave_num)
+	$"../UI/enemies".text = "Enemies Left: " + str(left)
 
 func enemy_killed():
 	left -= 1

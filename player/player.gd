@@ -13,6 +13,7 @@ var dmg := 50
 var sht_spd = 3
 
 #define nodes on ready so they load in time
+@onready var step: AudioStreamPlayer = $Step
 @onready var inv_timer = $invulnerablility
 @onready var dash_cooldown = $dash_cooldown
 @onready var proj = load("res://bullet.tscn")
@@ -67,6 +68,7 @@ func take_damage(dmg, inv, source_vel):
 		$AnimatedSprite2D.modulate = Color.WHITE
 		
 		$"../UI".update_ui("hp",health)
+		$"../UI".update_health(health, max_hp)
 	if health <= 0:
 		state = state_enum.dead
 
@@ -81,7 +83,7 @@ func do_debug_col(): #displays when the player is invulnerable
 		$CollisionShape2D.debug_color = Color("MEDIUM_SLATE_BLUE", 0.41)
 	else:
 		$CollisionShape2D.debug_color = Color("CHARTREUSE", 0.41)
-
+var done = false
 func play_anims():
 	animator.flip_h = mouse_pos.x < global_position.x
 	if input_vector != Vector2.ZERO:
@@ -95,6 +97,7 @@ func play_anims():
 	else:
 		gun_sprite.rotation = angle_to_mouse - PI/2
 		gun_sprite.flip_v = false
+	
 func move():
 	play_anims()
 	do_movement()
