@@ -2,11 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://dlt3uqsdvgvsi" path="res://player/stickman.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://brk0lhhiqs6kx" path="res://game.gd" id="1_eow3j"]
-[ext_resource type="PackedScene" uid="uid://b7mfudob1vt2p" path="res://tile_map_layer.tscn" id="1_ryrav"]
-[ext_resource type="Script" uid="uid://bl5rfdvdiej31" path="res://camera_2d.gd" id="2_e2o6t"]
-[ext_resource type="PackedScene" uid="uid://c3a6idn7jdtb" path="res://ui.tscn" id="4_fc0e3"]
-[ext_resource type="PackedScene" uid="uid://df0kb7n1xlcy" path="res://enemy_spawner.tscn" id="5_7jktm"]
-[ext_resource type="PackedScene" uid="uid://eqf0f3g617gs" path="res://pause_menu.tscn" id="7_j5wjh"]
+[ext_resource type="PackedScene" uid="uid://b7mfudob1vt2p" path="res://map/tile_map_layer.tscn" id="1_ryrav"]
+[ext_resource type="Script" uid="uid://bl5rfdvdiej31" path="res://player/camera/camera_2d.gd" id="2_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://c3a6idn7jdtb" path="res://UI/ui.tscn" id="4_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://df0kb7n1xlcy" path="res://enemies/spawner/enemy_spawner.tscn" id="5_7jktm"]
+[ext_resource type="PackedScene" uid="uid://eqf0f3g617gs" path="res://UI/pause_menu.tscn" id="7_j5wjh"]
 
 [node name="world" type="Node2D"]
 script = ExtResource("1_eow3j")
@@ -16,6 +16,7 @@ tile_map_data = PackedByteArray("AAD1//z/AAAAAAAAAAD1//3/AAAAAAAAAAD1//7/AAAAAAA
 
 [node name="stickman" parent="." instance=ExtResource("1_80nbo")]
 unique_name_in_owner = true
+position = Vector2(704, 520)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.5, 1.5)
@@ -28,3 +29,8 @@ follow_viewport_enabled = false
 
 [node name="enemy_spawner" parent="." instance=ExtResource("5_7jktm")]
 position = Vector2(-4, -75)
+
+[connection signal="pressed" from="UI/death_screen/Button" to="UI" method="_on_button_pressed"]
+[connection signal="pressed" from="UI/death_screen/Button2" to="UI" method="_on_button_2_pressed"]
+
+[editable path="UI"]
