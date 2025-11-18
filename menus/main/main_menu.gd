@@ -13,20 +13,25 @@ func _on_controls_pressed() -> void:
 	get_tree().change_scene_to_file("res://menus/controls/controls_menu.tscn")
 
 
-func _on_play_mouse_entered() -> void:
-	$play.modulate = Color.GOLD
+@export var tween_intensity: float
+@export var tween_duration: float
 
-func _on_controls_mouse_entered() -> void:
-	$controls.modulate = Color.GOLD
+@onready var play: Button = $play
+@onready var controls: Button = $controls
+@onready var quit: Button = $quit
 
-func _on_quit_mouse_entered() -> void:
-	$quit.modulate = Color.GOLD
+func _process(delta: float) -> void:
+	btn_hovered(play)
+	btn_hovered(controls)
+	btn_hovered(quit)
 
-func _on_play_mouse_exited() -> void:
-	$play.modulate = Color.WHITE
+func start_tween(object: Object, property: String, final_val: Variant, duration: float):
+	var tween = create_tween()
+	tween.tween_property(object, property, final_val, duration)
 
-func _on_controls_mouse_exited() -> void:
-	$controls.modulate = Color.WHITE
-
-func _on_quit_mouse_exited() -> void:
-	$quit.modulate = Color.WHITE
+func btn_hovered(button: Button):
+	button.pivot_offset = button.size / 2
+	if button.is_hovered():
+		start_tween(button, "scale", Vector2.ONE * tween_intensity, tween_duration)
+	else:
+		start_tween(button, "scale", Vector2.ONE, tween_duration)
