@@ -1,16 +1,21 @@
 extends CharacterBody2D
-@export var health := 100
-@export var dmg := 10
-@export var spd := 60
-
+@export var health := 100.0
+@export var dmg := 10.0
+@export var spd := 60.0
+var mod = 1
 var acc = 20
+
+func _ready() -> void:
+	health *= mod
+	dmg *= mod
+	spd *= mod
+
 func move():
 	velocity = velocity.move_toward((Gamestate.player.global_position - global_position).normalized() * spd,acc)
 	#position.move_toward(player.position, spd)
 	$AnimatedSprite2D.play("walk")
 
 func damage():
-	print(Gamestate.player.dmg)
 	self.health -= Gamestate.player.dmg
 	$AnimatedSprite2D.modulate = Color.RED
 	await get_tree().create_timer(0.1).timeout

@@ -1,15 +1,15 @@
 {
 	"waves": [
 		{
-			"enemy": 10,
-			"enemy2": 4,
+			"enemy": 1,
+			"enemy2": 1,
 		},
 		{
-			"enemy": 10,
-			"enemy2": 4,
+			"enemy": 2,
+			"enemy2": 1,
 		},
 		{
-			"enemy": 10,
+			"enemy": 2,
 			"enemy2": 4,
 		}
 	]

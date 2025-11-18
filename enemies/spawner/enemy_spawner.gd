@@ -7,13 +7,9 @@ var left := 0
 var wave_data_path = "res://enemies/spawner/waves.json"
 var wave_num = 0
 var n = 0
-var canSpawn := false
 const range = 300
 var wave_file = {}
-var wave1 = {
-	"enemy": 10,
-	"enemy2": 4
-}
+var wave_mod = 1.07
 
 func load_json(filePath):
 	if FileAccess.file_exists(filePath):
@@ -39,39 +35,46 @@ func spawn_enemy(type, mod):
 		instance.global_position = %stickman.global_position + Vector2(randi_range(-range,range),randi_range(-range,range))
 		#%stickman.global_position = instance.global_position
 		main.add_child.call_deferred(instance)
+		instance.mod = wave_mod
 	if type == "enemy2":
 		var instance = enemy2.instantiate()
 		instance.global_position = %stickman.global_position + Vector2(randi_range(-range/2,range/2),randi_range(-range/2,range/2))
 		#%stickman.global_position = instance.global_position
 		main.add_child.call_deferred(instance)
-
+		instance.mod = wave_mod
 func _physics_process(delta: float) -> void:
+	print(wave_num)
 	if $Timer.is_stopped():
-		print("ADIHASLJDKJSAHNKADS")
 		$Timer.start()
 
 func _on_timer_timeout() -> void:
 	do_wave(1, wave_file["waves"][wave_num])
-	if canSpawn:
-		n -= 1
-		spawn_enemy("enemy2",1)
 
 func start_wave(rate, types):
+	wave_mod = 1.07**wave_num
 	for type in types:
 		left += types[type]
-
-	wave_num += 1
+	$"../UI".update_enemy_count()
 	$Timer.wait_time = rate
 	$Timer.start()
-	$"../UI/Wave".text = "Wave: " + str(wave_num)
+	$"../UI/Wave".text = "Wave: " + str(wave_num + 1)
 	$"../UI/enemies".text = "Enemies Left: " + str(left)
+	
 
 func enemy_killed():
 	left -= 1
 	$"../UI".update_enemy_count()
+	if left <= 0:
+		print("NEXT WAVE")
+		next_wave()
 
 func do_wave(mod, types):
 	for i in types:
 		if types[i] > 0:
-			spawn_enemy(i,1)
+			spawn_enemy(i,mod)
 			types[i] -= 1
+
+func next_wave():
+	wave_num += 1
+	start_wave(1, wave_file["waves"][wave_num])
+	
