@@ -3,7 +3,6 @@
 [ext_resource type="FontFile" uid="uid://cxit8lrord42r" path="res://UI/BoldPixels.ttf" id="1_hdmo1"]
 [ext_resource type="Script" uid="uid://bpk7mpbc8d86h" path="res://UI/pause_menu.gd" id="1_nwcfo"]
 
-
 [sub_resource type="LabelSettings" id="LabelSettings_nwcfo"]
 font = ExtResource("1_hdmo1")
 font_size = 82
@@ -14,6 +13,7 @@ anchors_preset = 0
 offset_right = 1149.0
 offset_bottom = 647.0
 script = ExtResource("1_nwcfo")
+tween_intensity = 1.2
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
