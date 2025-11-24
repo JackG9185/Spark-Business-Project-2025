@@ -81,6 +81,7 @@ func dash():
 		inv_timer.start(0.2)
 	dash_cooldown.start(1)
 	velocity = input_vector * speed * 8
+	Gamestate.ui.start_dash()
 
 func do_debug_col(): #displays when the player is invulnerable
 	if inv_timer.is_stopped():

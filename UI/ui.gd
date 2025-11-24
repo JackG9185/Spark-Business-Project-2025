@@ -25,6 +25,7 @@ func _ready() -> void:
 	$Polygon2D2.polygon[3].x = %stickman.health * 5 + 4
 	$Polygon2D2.polygon[2].x = %stickman.health * 5 + 4
 	
+	Gamestate.ui = self
 	
 	cooldown.max_value = timer.wait_time
 
@@ -61,8 +62,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		stats_menu.position.x = lerp(stats_menu.position.x, -227.0, 0.15)
 	
-	
-	_on_timer_timeout()
 	if on_cooldown:
 		cooldown.value = timer.time_left
 
@@ -77,6 +76,7 @@ func start_dash():
 	if !on_cooldown:
 		timer.start()
 		on_cooldown = true
+	print(on_cooldown)
 
 func _on_timer_timeout() -> void:
 	cooldown.value = 0
