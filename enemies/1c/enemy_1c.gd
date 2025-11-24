@@ -1,7 +1,7 @@
 extends CharacterBody2D
 @export var health := 70.0
 @export var dmg := 10.0
-@export var spd := 100.0
+@export var spd := 220.0
 var mod = 1
 var acc = 20
 

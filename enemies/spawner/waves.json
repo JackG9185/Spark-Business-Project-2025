@@ -1,9 +1,9 @@
 {
 	"waves": [
 		{
-			"enemy": 10,
-			"enemyB": 0,
-			"enemyC": 0,
+			"enemy": 0,
+			"enemyB": 5,
+			"enemyC": 5,
 			"enemy2": 0,
 			"enemy2B": 0,
 			"enemy2C": 0,

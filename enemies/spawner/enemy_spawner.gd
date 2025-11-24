@@ -35,7 +35,7 @@ func get_spawn_coords():
 	var pos = Vector2(randi_range(-352,1792),randi_range(-128,960))
 	while pos.distance_squared_to(Gamestate.player.global_position) <= 1000:
 		pos = Vector2(randi_range(-352,1792),randi_range(-128,960))
-
+	return pos
 func spawn_enemy(type, mod):
 	if type == "enemy":
 		var instance = enemy1.instantiate()
