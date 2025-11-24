@@ -1,5 +1,7 @@
 extends Node2D
 @onready var enemy1 = load("res://enemies/1/enemy.tscn")
+@onready var enemy1b = load("res://enemies/1b/enemy_1b.tscn")
+@onready var enemy1c = load("res://enemies/1c/enemy_1c.tscn")
 @onready var enemy2 = load("res://enemies/2/enemy2.tscn")
 @onready var main = get_tree().current_scene
 
@@ -36,6 +38,18 @@ func spawn_enemy(type, mod):
 		#%stickman.global_position = instance.global_position
 		main.add_child.call_deferred(instance)
 		instance.mod = wave_mod
+	if type == "enemyB":
+		var instance = enemy1b.instantiate()
+		instance.global_position = %stickman.global_position + Vector2(randi_range(-range,range),randi_range(-range,range))
+		#%stickman.global_position = instance.global_position
+		main.add_child.call_deferred(instance)
+		instance.mod = wave_mod
+	if type == "enemyC":
+		var instance = enemy1c.instantiate()
+		instance.global_position = %stickman.global_position + Vector2(randi_range(-range,range),randi_range(-range,range))
+		#%stickman.global_position = instance.global_position
+		main.add_child.call_deferred(instance)
+		instance.mod = wave_mod
 	if type == "enemy2":
 		var instance = enemy2.instantiate()
 		instance.global_position = %stickman.global_position + Vector2(randi_range(-range/2,range/2),randi_range(-range/2,range/2))
@@ -43,7 +57,10 @@ func spawn_enemy(type, mod):
 		main.add_child.call_deferred(instance)
 		instance.mod = wave_mod
 func _physics_process(delta: float) -> void:
-	print(wave_num)
+	print($Timer.wait_time)
+	if left <= 0:
+		print("NEXT WAVE")
+		next_wave()
 	if $Timer.is_stopped():
 		$Timer.start()
 
@@ -51,7 +68,7 @@ func _on_timer_timeout() -> void:
 	do_wave(1, wave_file["waves"][wave_num])
 
 func start_wave(rate, types):
-	wave_mod = 1.07**wave_num
+	wave_mod = 1.07**wave_num #change this to change wave difficulty scaling (this is a exponential: 1.07^x)
 	for type in types:
 		left += types[type]
 	$"../UI".update_enemy_count()
@@ -64,9 +81,7 @@ func start_wave(rate, types):
 func enemy_killed():
 	left -= 1
 	$"../UI".update_enemy_count()
-	if left <= 0:
-		print("NEXT WAVE")
-		next_wave()
+	
 
 func do_wave(mod, types):
 	for i in types:
@@ -75,6 +90,17 @@ func do_wave(mod, types):
 			types[i] -= 1
 
 func next_wave():
+	var rate = 1
 	wave_num += 1
-	start_wave(1, wave_file["waves"][wave_num])
+	if wave_num % 5 == 1:
+		rate = 1
+	if wave_num % 5 == 2:
+		rate = 0.8
+	if wave_num % 5 == 3:
+		rate = 0.7
+	if wave_num % 5 == 4:
+		rate = 0.6
+	if wave_num % 5 == 0 && wave_num != 0:
+		rate = 0.5
+	start_wave(rate, wave_file["waves"][wave_num])
 	

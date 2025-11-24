@@ -1,16 +1,46 @@
 {
 	"waves": [
 		{
-			"enemy": 1,
-			"enemy2": 1,
+			"enemy": 10,
+			"enemy2": 0,
+			"enemyB": 0,
+			"enemyC": 0,
 		},
 		{
-			"enemy": 2,
-			"enemy2": 1,
+			"enemy": 0,
+			"enemy2": 10,
+			"enemyB": 0,
+			"enemyC": 0,
 		},
 		{
-			"enemy": 2,
-			"enemy2": 4,
+			"enemy": 0,
+			"enemy2": 0,
+			"enemyB": 10,
+			"enemyC": 0,
+		},
+		{
+			"enemy": 0,
+			"enemy2": 0,
+			"enemyB": 0,
+			"enemyC": 10,
+		},
+		{
+			"enemy": 10,
+			"enemy2": 0,
+			"enemyB": 0,
+			"enemyC": 0,
+		},
+		{
+			"enemy": 10,
+			"enemy2": 0,
+			"enemyB": 0,
+			"enemyC": 0,
+		},
+		{
+			"enemy": 10,
+			"enemy2": 0,
+			"enemyB": 0,
+			"enemyC": 0,
 		}
 	]
 }

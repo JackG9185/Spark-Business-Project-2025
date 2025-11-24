@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://dsks7ay0veuw6"]
+
+[ext_resource type="Script" uid="uid://5x33431ya84p" path="res://enemies/1c/enemy_1c.gd" id="1_l0q0h"]
+[ext_resource type="PackedScene" uid="uid://d3iic426vh6w3" path="res://enemies/bullet_detector.tscn" id="2_ubck8"]
+[ext_resource type="Texture2D" uid="uid://dof41653v8coe" path="res://menus/main/Enemy Alien (1).png" id="3_pfqkc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wripc"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wripc"]
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qi2p4"]
+atlas = ExtResource("3_pfqkc")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iifgy"]
+atlas = ExtResource("3_pfqkc")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bni74"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qi2p4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iifgy")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="enemy1c" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 10
+script = ExtResource("1_l0q0h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wripc")
+
+[node name="bullet_detector" parent="." instance=ExtResource("2_ubck8")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0, 8.715171, 18.892157, 1)
+material = SubResource("CanvasItemMaterial_wripc")
+position = Vector2(-1, -1.1920929e-07)
+scale = Vector2(1.2734375, 1.2734375)
+sprite_frames = SubResource("SpriteFrames_bni74")
+animation = &"walk"
+
+[connection signal="body_entered" from="bullet_detector" to="." method="_on_bullet_detector_body_entered"]
+
+[editable path="bullet_detector"]
