@@ -6,7 +6,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4pggu"]
 shader = ExtResource("1_2b0v1")
-shader_parameter/shift_amount = 360.0
+shader_parameter/shift_amount = 100.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vqaso"]
 texture = ExtResource("1_0ugm7")
