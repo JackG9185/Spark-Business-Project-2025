@@ -1,8 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bmst7uq7pomeu"]
 
-[ext_resource type="Script" uid="uid://cxrhrjhsy8p7t" path="res://enemies/2/enemy_2.gd" id="1_jugo2"]
+[ext_resource type="Script" uid="uid://cxrhrjhsy8p7t" path="res://enemies/enemy_2.gd" id="1_jugo2"]
 [ext_resource type="Texture2D" uid="uid://k6e45yfby80" path="res://enemies/2/UFO Enemy.png" id="2_jugo2"]
-
 
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
