@@ -1,12 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7mfudob1vt2p"]
+[gd_scene load_steps=4 format=3 uid="uid://b7mfudob1vt2p"]
 
 [ext_resource type="Texture2D" uid="uid://btkw53v4cv0uc" path="res://map/Tile Map.png" id="1_0ugm7"]
-[ext_resource type="Shader" uid="uid://c4ctjgcl3oa0t" path="res://map/hue_shift.gdshader" id="1_2b0v1"]
-[ext_resource type="Script" uid="uid://c5avon23kyblx" path="res://map/tile_map_layer.gd" id="3_i6ebh"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4pggu"]
-shader = ExtResource("1_2b0v1")
-shader_parameter/shift_amount = 360.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vqaso"]
 texture = ExtResource("1_0ugm7")
@@ -28,6 +23,4 @@ physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_vqaso")
 
 [node name="TileMapLayer" type="TileMapLayer"]
-material = SubResource("ShaderMaterial_4pggu")
 tile_set = SubResource("TileSet_uuaxm")
-script = ExtResource("3_i6ebh")

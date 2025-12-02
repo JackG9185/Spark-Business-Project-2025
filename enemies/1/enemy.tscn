@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://cmkjjlml40h62" path="res://enemies/enemy.gd" id="1_vlw6h"]
 [ext_resource type="Texture2D" uid="uid://dof41653v8coe" path="res://menus/main/Enemy Alien (1).png" id="2_8kyjj"]
-[ext_resource type="PackedScene" uid="uid://d3iic426vh6w3" path="res://enemies/bullet_detector.tscn" id="2_gxu15"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qi2p4"]
+radius = 17.464249
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qi2p4"]
 atlas = ExtResource("2_8kyjj")
@@ -37,7 +39,13 @@ script = ExtResource("1_vlw6h")
 shape = SubResource("RectangleShape2D_4gyqm")
 debug_color = Color(0.83055764, 0.3935394, 0, 0.41960785)
 
-[node name="bullet_detector" parent="." instance=ExtResource("2_gxu15")]
+[node name="bullet_detector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="detector_col" type="CollisionShape2D" parent="bullet_detector"]
+shape = SubResource("CircleShape2D_qi2p4")
+debug_color = Color(0.9098039, 0, 0.7294118, 0.25882354)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -1.1920929e-07)
@@ -47,5 +55,3 @@ animation = &"walk"
 frame_progress = 0.8802136
 
 [connection signal="body_entered" from="bullet_detector" to="." method="_on_bullet_detector_body_entered"]
-
-[editable path="bullet_detector"]

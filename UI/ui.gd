@@ -17,7 +17,7 @@ func _ready() -> void:
 	$health.text = "100/100"
 	
 	$Wave.text = "Wave: " + str(wave)
-	$enemies.text = "Enemies Left: "
+	$enemies.text = "Enemies Left: " + str(14)
 	
 	target_health_pos = %stickman.health * 5
 	$Polygon2D.polygon[1].x = %stickman.health * 5
@@ -46,7 +46,7 @@ func pause():
 	
 func update_enemy_count():
 	$enemies.text = "Enemies Left: " + str(Gamestate.spawner.left)
-	$Wave.text = "Wave: " + str(Gamestate.spawner.wave_num + 1) + "\n"
+	$Wave.text = "Wave: " + str(Gamestate.spawner.wave_num) + "\n"
 	if Gamestate.spawner.left <= 0:
 		$Wave.label_settings.font_color = Color(0.447, 244.878, 129.973, 1.0)
 	else:
