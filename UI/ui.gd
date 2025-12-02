@@ -5,9 +5,13 @@ var wave = 0
 
 var stats_up : bool = false
 
+var on_cooldown: bool = false
+
 @onready var health: Label = $health
 @onready var player = Gamestate.player
 @onready var stats_menu: Node2D = $stats_menu
+@onready var cooldown: TextureProgressBar = $Dashicon/Cooldown
+@onready var timer: Timer = $Dashicon/Timer
 
 func _ready() -> void:
 	$health.text = "100/100"
@@ -20,6 +24,10 @@ func _ready() -> void:
 	$Polygon2D.polygon[0].x = %stickman.health * 5
 	$Polygon2D2.polygon[3].x = %stickman.health * 5 + 4
 	$Polygon2D2.polygon[2].x = %stickman.health * 5 + 4
+	
+	Gamestate.ui = self
+	
+	cooldown.max_value = timer.wait_time
 
 func update_health(cur,max):
 	health.text = str(cur) + "/" + str(max)
@@ -53,7 +61,9 @@ func _physics_process(delta: float) -> void:
 		stats_menu.position.x = lerp(stats_menu.position.x, 53.0, 0.15)
 	else:
 		stats_menu.position.x = lerp(stats_menu.position.x, -227.0, 0.15)
-
+	
+	if on_cooldown:
+		cooldown.value = timer.time_left
 
 func _on_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://game.tscn")
@@ -61,3 +71,13 @@ func _on_button_pressed() -> void:
 
 func _on_button_2_pressed() -> void:
 	get_tree().change_scene_to_file("res://menus/main/main_menu.tscn")
+
+func start_dash():
+	if !on_cooldown:
+		timer.start()
+		on_cooldown = true
+	print(on_cooldown)
+
+func _on_timer_timeout() -> void:
+	cooldown.value = 0
+	on_cooldown = false

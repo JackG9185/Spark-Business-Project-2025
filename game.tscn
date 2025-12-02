@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://db68uewtcumda"]
+[gd_scene load_steps=10 format=4 uid="uid://db68uewtcumda"]
 
 [ext_resource type="PackedScene" uid="uid://dlt3uqsdvgvsi" path="res://player/stickman.tscn" id="1_80nbo"]
 [ext_resource type="Script" path="res://game.gd" id="1_eow3j"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://c3a6idn7jdtb" path="res://UI/ui.tscn" id="4_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://df0kb7n1xlcy" path="res://enemies/spawner/enemy_spawner.tscn" id="5_7jktm"]
 [ext_resource type="PackedScene" uid="uid://eqf0f3g617gs" path="res://UI/pause_menu.tscn" id="7_j5wjh"]
+[ext_resource type="Texture2D" uid="uid://mqmwvm68qfum" path="res://player/dashicon.png" id="8_j5wjh"]
+[ext_resource type="Texture2D" uid="uid://dn45uryq8gvw6" path="res://UI/4x4whitesquare.png" id="8_vef74"]
 
 [node name="world" type="Node2D"]
 script = ExtResource("1_eow3j")
@@ -25,12 +27,48 @@ script = ExtResource("2_e2o6t")
 [node name="UI" parent="." instance=ExtResource("4_fc0e3")]
 follow_viewport_enabled = false
 
+[node name="Wave" parent="UI" index="4"]
+offset_left = 516.0
+offset_top = -1.0
+offset_right = 841.0
+offset_bottom = 63.0
+
+[node name="enemies" parent="UI" index="5"]
+offset_left = 627.0
+offset_top = 5.0
+offset_right = 952.0
+offset_bottom = 69.0
+
 [node name="pause_menu" parent="UI" instance=ExtResource("7_j5wjh")]
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 1148.0
+offset_bottom = 648.0
+
+[node name="Dashicon" type="Sprite2D" parent="UI"]
+position = Vector2(39, 104.99999)
+scale = Vector2(3.590909, 3.5871205)
+texture = ExtResource("8_j5wjh")
+
+[node name="Cooldown" type="TextureProgressBar" parent="UI/Dashicon"]
+offset_left = -10.582279
+offset_top = -11.708553
+offset_right = 10.582277
+offset_bottom = 11.708555
+step = 0.01
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = ExtResource("8_vef74")
+tint_progress = Color(0, 0, 0, 0.48235294)
+
+[node name="Timer" type="Timer" parent="UI/Dashicon"]
+one_shot = true
 
 [node name="enemy_spawner" parent="." instance=ExtResource("5_7jktm")]
 position = Vector2(-4, -75)
 
 [connection signal="pressed" from="UI/death_screen/Button" to="UI" method="_on_button_pressed"]
 [connection signal="pressed" from="UI/death_screen/Button2" to="UI" method="_on_button_2_pressed"]
+[connection signal="timeout" from="UI/Dashicon/Timer" to="UI" method="_on_timer_timeout"]
 
 [editable path="UI"]

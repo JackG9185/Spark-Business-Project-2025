@@ -12,6 +12,7 @@ var state = state_enum.move
 var dmg := 50
 var sht_spd = 3
 
+
 #define nodes on ready so they load in time
 @onready var step: AudioStreamPlayer = $Step
 @onready var inv_timer = $invulnerablility
@@ -21,6 +22,8 @@ var sht_spd = 3
 @onready var animator = $AnimatedSprite2D
 @onready var gun_sprite = $Gun
 @onready var shot_timer = $shoot_timer
+@onready var reticle: CompressedTexture2D = preload("res://player/ReticleResize2.png")
+
 #state machine to execute certain functions when the player is in a matching state
 enum state_enum {
 	move,
@@ -29,6 +32,7 @@ enum state_enum {
 
 func _ready() -> void:
 	Gamestate.player = self
+	Input.set_custom_mouse_cursor(reticle)
 
 func get_input_vector(): #custom script for essentially getting WASD in all directions, also adds controller support
 	input_vector = Vector2.ZERO
@@ -77,6 +81,7 @@ func dash():
 		inv_timer.start(0.2)
 	dash_cooldown.start(1)
 	velocity = input_vector * speed * 8
+	Gamestate.ui.start_dash()
 
 func do_debug_col(): #displays when the player is invulnerable
 	if inv_timer.is_stopped():
