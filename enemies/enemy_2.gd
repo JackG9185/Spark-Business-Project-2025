@@ -1,17 +1,9 @@
 extends CharacterBody2D
-@export var health := 20.0
-@export var dmg := 20.0
-@export var spd := 40.0
+@export var health := 30
+@export var dmg := 10
+@export var spd := 10
 @onready var modulate0 = $AnimatedSprite2D.modulate
-var mod = 1
 var acc = 20
-
-func _ready() -> void:
-	health *= mod
-	dmg *= mod
-	spd *= mod
-	
-
 func move():
 	velocity = Vector2(170,50).rotated((Gamestate.player.global_position - global_position).angle() - PI/2)
 	#position.move_toward(player.position, spd)
