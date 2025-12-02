@@ -1,7 +1,8 @@
 extends CharacterBody2D
-@export var health := 150.0
-@export var dmg := 20.0
-@export var spd := 220.0
+@export var health := 1000.0
+@export var dmg := 35.0
+@export var spd := 50.0
+@onready var modulate0 = $AnimatedSprite2D.modulate
 var mod = 1
 var acc = 20
 
@@ -9,6 +10,7 @@ func _ready() -> void:
 	health *= mod
 	dmg *= mod
 	spd *= mod
+	
 
 func move():
 	velocity = velocity.move_toward((Gamestate.player.global_position - global_position).normalized() * spd,acc)
@@ -16,7 +18,7 @@ func move():
 	$AnimatedSprite2D.play("walk")
 
 func damage():
-	self.health -= Gamestate.player.dmg
+	health -= Gamestate.player.dmg
 	$AnimatedSprite2D.modulate = Color.RED
 	await get_tree().create_timer(0.1).timeout
 	$AnimatedSprite2D.modulate = Color.WHITE
@@ -32,5 +34,5 @@ func _physics_process(delta: float) -> void:
 func _on_bullet_detector_body_entered(body: Node2D) -> void:
 	damage()
 	
-	velocity -= body.velocity.rotated(PI)
+	velocity -= (body.velocity/2).rotated(PI)
 	body.queue_free()

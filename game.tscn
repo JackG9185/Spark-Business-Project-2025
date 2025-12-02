@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=4 uid="uid://db68uewtcumda"]
 
 [ext_resource type="PackedScene" uid="uid://dlt3uqsdvgvsi" path="res://player/stickman.tscn" id="1_80nbo"]
-[ext_resource type="Script" uid="uid://brk0lhhiqs6kx" path="res://game.gd" id="1_eow3j"]
+[ext_resource type="Script" path="res://game.gd" id="1_eow3j"]
 [ext_resource type="PackedScene" uid="uid://b7mfudob1vt2p" path="res://map/tile_map_layer.tscn" id="1_ryrav"]
 [ext_resource type="Script" uid="uid://bl5rfdvdiej31" path="res://player/camera/camera_2d.gd" id="2_e2o6t"]
 [ext_resource type="PackedScene" uid="uid://c3a6idn7jdtb" path="res://UI/ui.tscn" id="4_fc0e3"]

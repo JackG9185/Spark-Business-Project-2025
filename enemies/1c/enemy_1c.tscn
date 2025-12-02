@@ -1,14 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://dsks7ay0veuw6"]
+[gd_scene load_steps=10 format=3 uid="uid://dsks7ay0veuw6"]
 
 [ext_resource type="Script" uid="uid://5x33431ya84p" path="res://enemies/1c/enemy_1c.gd" id="1_l0q0h"]
 [ext_resource type="PackedScene" uid="uid://d3iic426vh6w3" path="res://enemies/bullet_detector.tscn" id="2_ubck8"]
+[ext_resource type="Shader" uid="uid://byukltmuho2jw" path="res://enemies/color_switcher.gdshader" id="3_efgq3"]
 [ext_resource type="Texture2D" uid="uid://dof41653v8coe" path="res://menus/main/Enemy Alien (1).png" id="3_pfqkc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wripc"]
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wripc"]
-blend_mode = 1
-light_mode = 1
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_on5ff"]
+shader = ExtResource("3_efgq3")
+shader_parameter/tolerance = 0.1
+shader_parameter/prev_color = Color(0.19607843, 0.6392157, 0.16862746, 1)
+shader_parameter/new_color = Color(0.64, 0.16639999, 0.30058664, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qi2p4"]
 atlas = ExtResource("3_pfqkc")
@@ -43,8 +46,7 @@ shape = SubResource("RectangleShape2D_wripc")
 [node name="bullet_detector" parent="." instance=ExtResource("2_ubck8")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-modulate = Color(0, 8.715171, 18.892157, 1)
-material = SubResource("CanvasItemMaterial_wripc")
+material = SubResource("ShaderMaterial_on5ff")
 position = Vector2(-1, -1.1920929e-07)
 scale = Vector2(1.2734375, 1.2734375)
 sprite_frames = SubResource("SpriteFrames_bni74")

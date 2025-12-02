@@ -3,6 +3,9 @@ extends Node2D
 @onready var enemy1b = load("res://enemies/1b/enemy_1b.tscn")
 @onready var enemy1c = load("res://enemies/1c/enemy_1c.tscn")
 @onready var enemy2 = load("res://enemies/2/enemy2.tscn")
+@onready var enemy2b = load("res://enemies/2b/enemy2b.tscn")
+@onready var enemy2c = load("res://enemies/2c/enemy2c.tscn")
+@onready var boss = load("res://enemies/boss/boss.tscn")
 @onready var main = get_tree().current_scene
 
 var left := 0
@@ -61,8 +64,26 @@ func spawn_enemy(type, mod):
 		#%stickman.global_position = instance.global_position
 		main.add_child.call_deferred(instance)
 		instance.mod = wave_mod
+	if type == "enemy2B":
+		var instance = enemy2b.instantiate()
+		instance.global_position = %stickman.global_position + Vector2(randi_range(-range/2,range/2),randi_range(-range/2,range/2))
+		#%stickman.global_position = instance.global_position
+		main.add_child.call_deferred(instance)
+		instance.mod = wave_mod
+	if type == "enemy2C":
+		var instance = enemy2c.instantiate()
+		instance.global_position = %stickman.global_position + Vector2(randi_range(-range/2,range/2),randi_range(-range/2,range/2))
+		#%stickman.global_position = instance.global_position
+		main.add_child.call_deferred(instance)
+		instance.mod = wave_mod
+	if type == "Boss":
+		print("BOSS")
+		var instance = boss.instantiate()
+		instance.global_position = %stickman.global_position + Vector2(randi_range(-range/2,range/2),randi_range(-range/2,range/2))
+		#%stickman.global_position = instance.global_position
+		main.add_child.call_deferred(instance)
+		instance.mod = wave_mod
 func _physics_process(delta: float) -> void:
-	print($Timer.wait_time)
 	if left <= 0:
 		print("NEXT WAVE")
 		next_wave()
@@ -95,6 +116,7 @@ func do_wave(mod, types):
 			types[i] -= 1
 
 func next_wave():
+	$"../TileMapLayer".shift_color()
 	var rate = 1
 	wave_num += 1
 	if wave_num % 5 == 1:
