@@ -14,6 +14,7 @@ offset_right = 1149.0
 offset_bottom = 647.0
 script = ExtResource("1_nwcfo")
 tween_intensity = 1.2
+tween_duration = 0.2
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
