@@ -17,12 +17,13 @@ func move():
 
 func damage():
 	self.health -= Gamestate.player.dmg
-	$AnimatedSprite2D.set_instance_shader_parameter("shader_parameter/new_color", Color.RED)
-	await get_tree().create_timer(0.1).timeout
-	$AnimatedSprite2D.set_instance_shader_parameter("shader_parameter/new_color", og_color)
 	if health <= 0:
 		Gamestate.spawner.enemy_killed()
 		queue_free()
+	$AnimatedSprite2D.set_instance_shader_parameter("shader_parameter/new_color", Color.RED)
+	await get_tree().create_timer(0.1).timeout
+	$AnimatedSprite2D.set_instance_shader_parameter("shader_parameter/new_color", og_color)
+	
 
 func _physics_process(delta: float) -> void:
 	move()

@@ -34,52 +34,52 @@ func _ready() -> void:
 	#print(wave_file["waves"][0])
 	start_wave(1, wave_file["waves"][wave_num])
 
-func get_spawn_coords():
+func get_spawn_coords(dist):
 	var pos = Vector2(randi_range(-352,1792),randi_range(-128,960))
-	while pos.distance_squared_to(Gamestate.player.global_position) <= 1000:
+	while pos.distance_squared_to(Gamestate.player.global_position) <= dist:
 		pos = Vector2(randi_range(-352,1792),randi_range(-128,960))
 	return pos
 func spawn_enemy(type, mod):
 	if type == "enemy":
 		var instance = enemy1.instantiate()
-		instance.global_position = %stickman.global_position + Vector2(randi_range(-range,range),randi_range(-range,range))
+		instance.global_position = get_spawn_coords(1000)
 		#%stickman.global_position = instance.global_position
 		main.add_child.call_deferred(instance)
 		instance.mod = wave_mod
 	if type == "enemyB":
 		var instance = enemy1b.instantiate()
-		instance.global_position = %stickman.global_position + Vector2(randi_range(-range,range),randi_range(-range,range))
+		instance.global_position = get_spawn_coords(1000)
 		#%stickman.global_position = instance.global_position
 		main.add_child.call_deferred(instance)
 		instance.mod = wave_mod
 	if type == "enemyC":
 		var instance = enemy1c.instantiate()
-		instance.global_position = %stickman.global_position + Vector2(randi_range(-range,range),randi_range(-range,range))
+		instance.global_position = get_spawn_coords(1000)
 		#%stickman.global_position = instance.global_position
 		main.add_child.call_deferred(instance)
 		instance.mod = wave_mod
 	if type == "enemy2":
 		var instance = enemy2.instantiate()
-		instance.global_position = %stickman.global_position + Vector2(randi_range(-range/2,range/2),randi_range(-range/2,range/2))
+		instance.global_position = get_spawn_coords(1000)
 		#%stickman.global_position = instance.global_position
 		main.add_child.call_deferred(instance)
 		instance.mod = wave_mod
 	if type == "enemy2B":
 		var instance = enemy2b.instantiate()
-		instance.global_position = %stickman.global_position + Vector2(randi_range(-range/2,range/2),randi_range(-range/2,range/2))
+		instance.global_position = get_spawn_coords(1000)
 		#%stickman.global_position = instance.global_position
 		main.add_child.call_deferred(instance)
 		instance.mod = wave_mod
 	if type == "enemy2C":
 		var instance = enemy2c.instantiate()
-		instance.global_position = %stickman.global_position + Vector2(randi_range(-range/2,range/2),randi_range(-range/2,range/2))
+		instance.global_position = get_spawn_coords(1000)
 		#%stickman.global_position = instance.global_position
 		main.add_child.call_deferred(instance)
 		instance.mod = wave_mod
 	if type == "Boss":
 		print("BOSS")
 		var instance = boss.instantiate()
-		instance.global_position = %stickman.global_position + Vector2(randi_range(-range/2,range/2),randi_range(-range/2,range/2))
+		instance.global_position = get_spawn_coords(1500)
 		#%stickman.global_position = instance.global_position
 		main.add_child.call_deferred(instance)
 		instance.mod = wave_mod

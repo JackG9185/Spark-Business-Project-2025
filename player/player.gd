@@ -1,6 +1,6 @@
 extends CharacterBody2D
 #defining all the variables n stuff
-var max_hp :=100
+var max_hp := 100
 var health := max_hp
 var input_vector
 var speed = 200
@@ -9,7 +9,7 @@ var acc = 80
 var mouse_pos : Vector2
 var angle_to_mouse : float
 var state = state_enum.move
-var dmg := 50
+var dmg := 5000
 var sht_spd = 3
 
 

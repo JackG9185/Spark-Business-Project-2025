@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://ckd5axu8exlak" path="res://enemies/boss/Sprite-0001.png" id="2_n18ml"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
-size = Vector2(38, 64)
+size = Vector2(234, 301)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n18ml"]
-size = Vector2(48, 72)
+size = Vector2(239, 307)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cyix5"]
 atlas = ExtResource("2_n18ml")
@@ -47,10 +47,11 @@ animations = [{
 
 [node name="boss" type="CharacterBody2D"]
 collision_layer = 4
-collision_mask = 2
+collision_mask = 8
 script = ExtResource("1_r4ron")
 
 [node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -15.5)
 shape = SubResource("RectangleShape2D_4gyqm")
 debug_color = Color(0.83055764, 0.3935394, 0, 0.41960785)
 
@@ -59,11 +60,12 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="detector_col" type="CollisionShape2D" parent="bullet_detector"]
-position = Vector2(-1, -2)
+position = Vector2(-0.5, -16.5)
 shape = SubResource("RectangleShape2D_n18ml")
 debug_color = Color(0.9098039, 0, 0.7294118, 0.25882354)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_r4ron")
 animation = &"walk"
 
