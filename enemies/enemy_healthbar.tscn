@@ -1,0 +1,3 @@
+[gd_scene load_steps=0 format=3 uid="uid://d2d87533e7rae"]
+
+[node name="enemy_healthbar" type="Node2D"]
