@@ -63,7 +63,7 @@ offset_left = 37.0
 offset_top = 91.0
 offset_right = 254.0
 offset_bottom = 214.0
-text = " Head 
+text = " Lead 
 Designer"
 label_settings = SubResource("LabelSettings_e4bic")
 
@@ -82,7 +82,7 @@ offset_left = 48.0
 offset_top = 94.0
 offset_right = 230.0
 offset_bottom = 217.0
-text = " Head 
+text = " Lead 
 Artist"
 label_settings = SubResource("LabelSettings_e4bic")
 
@@ -101,7 +101,7 @@ offset_left = -60.0
 offset_top = 95.0
 offset_right = 258.0
 offset_bottom = 218.0
-text = "    Head
+text = "    Lead
  Programmer"
 label_settings = SubResource("LabelSettings_e4bic")
 
