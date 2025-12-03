@@ -2,9 +2,9 @@ extends CharacterBody2D
 @export var health := 70.0
 @export var dmg := 10.0
 @export var spd := 220.0
-var mod = 1
+var mod = 1.0
 var acc = 20
-var og_color = $AnimatedSprite2D.get_instance_shader_parameter("shader_parameter/new_color")
+@onready var og_color = $AnimatedSprite2D.get_instance_shader_parameter("shader_parameter/new_color")
 func _ready() -> void:
 	health *= mod
 	dmg *= mod

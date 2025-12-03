@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var dmg := 10.0
 @export var spd := 10.0
 @onready var modulate0 = $AnimatedSprite2D.modulate
-var mod = 1
+var mod = 1.0
 var acc = 20
 
 func _ready() -> void:
