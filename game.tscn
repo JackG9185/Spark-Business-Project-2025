@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://db68uewtcumda"]
+[gd_scene load_steps=17 format=4 uid="uid://db68uewtcumda"]
 
 [ext_resource type="PackedScene" uid="uid://dlt3uqsdvgvsi" path="res://player/stickman.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://brk0lhhiqs6kx" path="res://game.gd" id="1_eow3j"]
@@ -9,6 +9,22 @@
 [ext_resource type="PackedScene" uid="uid://eqf0f3g617gs" path="res://UI/pause_menu.tscn" id="7_j5wjh"]
 [ext_resource type="Texture2D" uid="uid://mqmwvm68qfum" path="res://player/dashicon.png" id="8_j5wjh"]
 [ext_resource type="Texture2D" uid="uid://dn45uryq8gvw6" path="res://UI/4x4whitesquare.png" id="8_vef74"]
+[ext_resource type="FontFile" uid="uid://cxit8lrord42r" path="res://UI/BoldPixels.ttf" id="9_hve3p"]
+[ext_resource type="Texture2D" uid="uid://cusxjvbej5145" path="res://player/bullet/New Piskel-1.png.png" id="10_lc2xo"]
+[ext_resource type="Texture2D" uid="uid://tm8bahlpv2lp" path="res://menus/fire_rate_icon.png" id="10_mfdv2"]
+[ext_resource type="Texture2D" uid="uid://cmwb7c72ar44s" path="res://menus/speed_icon.png.png" id="11_215e1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mfdv2"]
+font = ExtResource("9_hve3p")
+font_size = 63
+
+[sub_resource type="LabelSettings" id="LabelSettings_lc2xo"]
+font = ExtResource("9_hve3p")
+font_size = 70
+
+[sub_resource type="LabelSettings" id="LabelSettings_iotsf"]
+font = ExtResource("9_hve3p")
+font_size = 56
 
 [node name="world" type="Node2D"]
 script = ExtResource("1_eow3j")
@@ -63,6 +79,78 @@ tint_progress = Color(0, 0, 0, 0.48235294)
 
 [node name="Timer" type="Timer" parent="UI/Dashicon"]
 one_shot = true
+
+[node name="Level up menu" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="UI/Level up menu"]
+z_index = 1
+layout_mode = 0
+offset_left = 409.0
+offset_top = 165.0
+offset_right = 749.0
+offset_bottom = 563.0
+
+[node name="Label" type="Label" parent="UI/Level up menu/Button"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 13.0
+offset_right = 339.0
+offset_bottom = 64.0
+text = "+10 Damage"
+label_settings = SubResource("LabelSettings_mfdv2")
+
+[node name="DamageIcon" type="Sprite2D" parent="UI/Level up menu/Button"]
+position = Vector2(168, 226.00003)
+scale = Vector2(45.75, 45.75)
+texture = ExtResource("10_lc2xo")
+
+[node name="Button2" type="Button" parent="UI/Level up menu"]
+z_index = 1
+layout_mode = 0
+offset_left = 776.0
+offset_top = 164.0
+offset_right = 1116.0
+offset_bottom = 564.0
+
+[node name="Label" type="Label" parent="UI/Level up menu/Button2"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 3.0
+offset_right = 391.0
+offset_bottom = 74.0
+text = "+50 Speed"
+label_settings = SubResource("LabelSettings_lc2xo")
+
+[node name="SpeedIcon_png" type="Sprite2D" parent="UI/Level up menu/Button2"]
+position = Vector2(181, 230)
+scale = Vector2(13.749998, 13.749999)
+texture = ExtResource("11_215e1")
+
+[node name="Button3" type="Button" parent="UI/Level up menu"]
+z_index = 1
+layout_mode = 0
+offset_left = 35.0
+offset_top = 164.0
+offset_right = 375.0
+offset_bottom = 564.0
+
+[node name="Label 3" type="Label" parent="UI/Level up menu/Button3"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 336.0
+offset_bottom = 64.0
+text = "+1 Fire Rate"
+label_settings = SubResource("LabelSettings_iotsf")
+
+[node name="FireRateIcon" type="Sprite2D" parent="UI/Level up menu/Button3"]
+position = Vector2(167, 241)
+scale = Vector2(12.890625, 12.890625)
+texture = ExtResource("10_mfdv2")
 
 [node name="enemy_spawner" parent="." instance=ExtResource("5_7jktm")]
 position = Vector2(-4, -75)
