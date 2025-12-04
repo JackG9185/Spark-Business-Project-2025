@@ -67,6 +67,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://game.tscn")
+	$"../TileMapLayer".color = 0
 
 
 func _on_button_2_pressed() -> void:

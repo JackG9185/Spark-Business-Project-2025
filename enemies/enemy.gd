@@ -19,6 +19,7 @@ func damage():
 	
 	self.health -= Gamestate.player.dmg
 	if health <= 0:
+		print("KILL")
 		Gamestate.spawner.enemy_killed()
 		queue_free()
 	$AnimatedSprite2D.modulate = Color.RED

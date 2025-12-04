@@ -108,13 +108,14 @@ func enemy_killed():
 	
 
 func do_wave(mod, types):
-	for i in types:
-		if types[i] > 0:
-			spawn_enemy(i,mod)
-			types[i] -= 1
+	if !$"..".leveling:
+		for i in types:
+			if types[i] > 0:
+				spawn_enemy(i,mod)
+				types[i] -= 1
 
 func next_wave():
-	
+	$"..".leveling = true
 	$"../TileMapLayer".shift_color()
 	var rate = 1
 	wave_num += 1

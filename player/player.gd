@@ -9,7 +9,7 @@ var acc = 80
 var mouse_pos : Vector2
 var angle_to_mouse : float
 var state = state_enum.move
-var dmg := 5000
+var dmg := 50
 var sht_spd = 3
 
 
@@ -31,6 +31,7 @@ enum state_enum {
 }
 
 func _ready() -> void:
+	shot_timer.wait_time = 1.0/sht_spd
 	Gamestate.player = self
 	Input.set_custom_mouse_cursor(reticle)
 
@@ -41,6 +42,7 @@ func get_input_vector(): #custom script for essentially getting WASD in all dire
 	input_vector = input_vector.normalized()
 
 func do_movement():
+	#print(input_vector * speed)
 	if input_vector != Vector2.ZERO: #if the player IS moving apply velocity
 		velocity = velocity.move_toward(input_vector * speed, acc)
 	else: #if the player is NOT moving apply friction
@@ -129,6 +131,7 @@ func dead():
 
 
 func update_stats(hp,sp,dm,ss):
+	print("UPDATED")
 	max_hp = hp
 	speed = sp
 	dmg = dm
@@ -145,7 +148,7 @@ func _physics_process(delta: float) -> void:
 			stepped = false
 	get_input_vector()
 	do_debug_col()
-	update_stats(100, 200, dmg, 3)
+	#update_stats(100, 200, dmg, 3)
 	match state: #matches a function to each state and runs it.
 		state_enum.move:
 			move()
