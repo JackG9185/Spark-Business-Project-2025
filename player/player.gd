@@ -1,6 +1,6 @@
 extends CharacterBody2D
 #defining all the variables n stuff
-var max_hp :=100
+var max_hp := 100
 var health := max_hp
 var input_vector
 var speed = 200
@@ -9,7 +9,7 @@ var acc = 80
 var mouse_pos : Vector2
 var angle_to_mouse : float
 var state = state_enum.move
-var dmg := 50
+var dmg := 5000
 var sht_spd = 3
 
 
@@ -135,7 +135,14 @@ func update_stats(hp,sp,dm,ss):
 	sht_spd = ss
 	shot_timer.wait_time = 1.0/sht_spd
 
+var stepped = false
 func _physics_process(delta: float) -> void:
+	if animator.animation == "walk":
+		if animator.frame % 2 == 1:
+			stepped = true
+		elif stepped:
+			step.play()
+			stepped = false
 	get_input_vector()
 	do_debug_col()
 	update_stats(100, 200, dmg, 3)

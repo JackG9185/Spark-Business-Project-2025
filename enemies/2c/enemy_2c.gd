@@ -19,12 +19,13 @@ func move():
 
 func damage():
 	health -= Gamestate.player.dmg
-	$AnimatedSprite2D.modulate = Color.RED
-	await get_tree().create_timer(0.1).timeout
-	$AnimatedSprite2D.modulate = Color.WHITE
 	if health <= 0:
 		Gamestate.spawner.enemy_killed()
 		queue_free()
+	$AnimatedSprite2D.modulate = Color.RED
+	await get_tree().create_timer(0.1).timeout
+	$AnimatedSprite2D.modulate = Color.WHITE
+	
 
 func _physics_process(delta: float) -> void:
 	move()

@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var dmg := 10.0
 @export var spd := 10.0
 @onready var modulate0 = $AnimatedSprite2D.modulate
-var mod = 1
+var mod = 1.0
 var acc = 20
 
 func _ready() -> void:
@@ -19,12 +19,13 @@ func move():
 
 func damage():
 	health -= Gamestate.player.dmg
-	$AnimatedSprite2D.modulate = Color.RED
-	await get_tree().create_timer(0.1).timeout
-	$AnimatedSprite2D.modulate = Color.WHITE
 	if health <= 0:
 		Gamestate.spawner.enemy_killed()
 		queue_free()
+	$AnimatedSprite2D.modulate = Color.RED
+	await get_tree().create_timer(0.1).timeout
+	$AnimatedSprite2D.modulate = Color.WHITE
+	
 
 func _physics_process(delta: float) -> void:
 	move()

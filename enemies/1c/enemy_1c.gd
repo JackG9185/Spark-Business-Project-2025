@@ -2,9 +2,9 @@ extends CharacterBody2D
 @export var health := 70.0
 @export var dmg := 10.0
 @export var spd := 220.0
-var mod = 1
+var mod = 1.0
 var acc = 20
-var og_color = $AnimatedSprite2D.get_instance_shader_parameter("shader_parameter/new_color")
+@onready var og_color = $AnimatedSprite2D.get_instance_shader_parameter("shader_parameter/new_color")
 func _ready() -> void:
 	health *= mod
 	dmg *= mod
@@ -17,12 +17,13 @@ func move():
 
 func damage():
 	self.health -= Gamestate.player.dmg
-	$AnimatedSprite2D.set_instance_shader_parameter("shader_parameter/new_color", Color.RED)
-	await get_tree().create_timer(0.1).timeout
-	$AnimatedSprite2D.set_instance_shader_parameter("shader_parameter/new_color", og_color)
 	if health <= 0:
 		Gamestate.spawner.enemy_killed()
 		queue_free()
+	$AnimatedSprite2D.set_instance_shader_parameter("shader_parameter/new_color", Color.RED)
+	await get_tree().create_timer(0.1).timeout
+	$AnimatedSprite2D.set_instance_shader_parameter("shader_parameter/new_color", og_color)
+	
 
 func _physics_process(delta: float) -> void:
 	move()

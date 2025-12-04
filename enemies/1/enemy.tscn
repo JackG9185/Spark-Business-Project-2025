@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cmkjjlml40h62" path="res://enemies/enemy.gd" id="1_vlw6h"]
 [ext_resource type="Texture2D" uid="uid://dof41653v8coe" path="res://menus/main/Enemy Alien (1).png" id="2_8kyjj"]
-[ext_resource type="PackedScene" uid="uid://d3iic426vh6w3" path="res://enemies/bullet_detector.tscn" id="2_gxu15"]
+[ext_resource type="PackedScene" path="res://enemies/bullet_detector.tscn" id="2_gxu15"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
 
