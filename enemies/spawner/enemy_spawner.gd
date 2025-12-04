@@ -77,7 +77,6 @@ func spawn_enemy(type, mod):
 		main.add_child.call_deferred(instance)
 		instance.mod = wave_mod
 	if type == "Boss":
-		print("BOSS")
 		var instance = boss.instantiate()
 		instance.global_position = get_spawn_coords(1500)
 		#%stickman.global_position = instance.global_position
@@ -85,13 +84,12 @@ func spawn_enemy(type, mod):
 		instance.mod = wave_mod
 func _physics_process(delta: float) -> void:
 	if left <= 0:
-		print("NEXT WAVE")
 		next_wave()
 	if $Timer.is_stopped():
 		$Timer.start()
 
 func _on_timer_timeout() -> void:
-	do_wave(1, wave_file["waves"][wave_num])
+	do_wave(1, wave_file["waves"][wave_num%25])
 
 func start_wave(rate, types):
 	wave_mod = 1.07**wave_num #change this to change wave difficulty scaling (this is a exponential: 1.07^x)
@@ -116,6 +114,7 @@ func do_wave(mod, types):
 			types[i] -= 1
 
 func next_wave():
+	
 	$"../TileMapLayer".shift_color()
 	var rate = 1
 	wave_num += 1
@@ -129,5 +128,5 @@ func next_wave():
 		rate = 0.6
 	if wave_num % 5 == 0 && wave_num != 0:
 		rate = 0.5
-	start_wave(rate, wave_file["waves"][wave_num])
+	start_wave(rate, wave_file["waves"][wave_num%25])
 	

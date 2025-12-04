@@ -135,7 +135,14 @@ func update_stats(hp,sp,dm,ss):
 	sht_spd = ss
 	shot_timer.wait_time = 1.0/sht_spd
 
+var stepped = false
 func _physics_process(delta: float) -> void:
+	if animator.animation == "walk":
+		if animator.frame % 2 == 1:
+			stepped = true
+		elif stepped:
+			step.play()
+			stepped = false
 	get_input_vector()
 	do_debug_col()
 	update_stats(100, 200, dmg, 3)

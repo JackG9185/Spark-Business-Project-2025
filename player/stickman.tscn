@@ -78,6 +78,8 @@ script = ExtResource("1_kr24v")
 
 [node name="Step" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_kr24v")
+volume_db = 6.0
+pitch_scale = 1.81
 
 [node name="shoot_timer" type="Timer" parent="."]
 one_shot = true
@@ -86,7 +88,7 @@ one_shot = true
 position = Vector2(2, 4)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_6jiok")
-animation = &"stand"
+animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_heo7t")
