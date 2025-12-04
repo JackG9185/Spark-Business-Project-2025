@@ -27,15 +27,18 @@ func pauseMenu():
 	
 	paused = !paused 
 
-
+var hp_add = 50
 func _on_button_pressed() -> void: #dmg
-	Gamestate.player.update_stats(Gamestate.player.max_hp,Gamestate.player.speed,Gamestate.player.dmg + 10,Gamestate.player.sht_spd)
-	leveling = false
+	if leveling:
+		Gamestate.player.update_stats(Gamestate.player.max_hp + hp_add,Gamestate.player.speed,Gamestate.player.dmg + 10,Gamestate.player.sht_spd)
+		leveling = false
 
 func _on_button_2_pressed() -> void: #spd
-	Gamestate.player.update_stats(Gamestate.player.max_hp,Gamestate.player.speed + 50,Gamestate.player.dmg,Gamestate.player.sht_spd)
-	leveling = false
+	if leveling:
+		Gamestate.player.update_stats(Gamestate.player.max_hp + hp_add,Gamestate.player.speed + 50,Gamestate.player.dmg,Gamestate.player.sht_spd)
+		leveling = false
 
 func _on_button_3_pressed() -> void: #ss
-	Gamestate.player.update_stats(Gamestate.player.max_hp,Gamestate.player.speed,Gamestate.player.dmg + 10,Gamestate.player.sht_spd + 1)
-	leveling = false
+	if leveling:
+		Gamestate.player.update_stats(Gamestate.player.max_hp + hp_add,Gamestate.player.speed,Gamestate.player.dmg + 10,Gamestate.player.sht_spd + 1)
+		leveling = false

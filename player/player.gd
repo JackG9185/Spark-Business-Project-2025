@@ -14,6 +14,7 @@ var sht_spd = 3
 
 
 #define nodes on ready so they load in time
+@onready var shootSound: AudioStreamPlayer = $Shoot
 @onready var step: AudioStreamPlayer = $Step
 @onready var inv_timer = $invulnerablility
 @onready var dash_cooldown = $dash_cooldown
@@ -52,6 +53,7 @@ func do_movement():
 func shoot():
 	if !$"..".paused:
 		if shot_timer.is_stopped() == true:
+			shootSound.play()
 			var instance = proj.instantiate()
 			instance.dir = angle_to_mouse
 			instance.spawnPos = global_position + Vector2(0,-40).rotated(angle_to_mouse)+Vector2(0,-abs(5*sin(angle_to_mouse)))
@@ -137,6 +139,9 @@ func update_stats(hp,sp,dm,ss):
 	dmg = dm
 	sht_spd = ss
 	shot_timer.wait_time = 1.0/sht_spd
+	
+	$"../UI".update_health(health, max_hp)
+	$"../UI".update_ui("hp",health)
 
 var stepped = false
 func _physics_process(delta: float) -> void:

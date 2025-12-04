@@ -7,6 +7,9 @@ extends Node2D
 @onready var enemy2c = load("res://enemies/2c/enemy2c.tscn")
 @onready var boss = load("res://enemies/boss/boss.tscn")
 @onready var main = get_tree().current_scene
+@onready var enemy_die: AudioStreamPlayer = $EnemyDie
+
+
 
 var left := 0
 var wave_data_path = "res://enemies/spawner/waves.json"
@@ -103,6 +106,7 @@ func start_wave(rate, types):
 	
 
 func enemy_killed():
+	enemy_die.play()
 	left -= 1
 	$"../UI".update_enemy_count()
 	
