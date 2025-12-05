@@ -10,7 +10,7 @@ var mouse_pos : Vector2
 var angle_to_mouse : float
 var state = state_enum.move
 var dmg := 50
-var sht_spd = 99
+var sht_spd = 3
 
 
 #define nodes on ready so they load in time

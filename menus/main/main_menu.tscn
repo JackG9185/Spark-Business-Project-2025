@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=4 uid="uid://qrxmn08gi1e4"]
+[gd_scene load_steps=8 format=4 uid="uid://qrxmn08gi1e4"]
 
 [ext_resource type="Script" uid="uid://deoyhxk3nrdbm" path="res://menus/main/main_menu.gd" id="1_06t4h"]
 [ext_resource type="FontFile" uid="uid://cxit8lrord42r" path="res://UI/BoldPixels.ttf" id="2_7vrkn"]
+[ext_resource type="AudioStream" uid="uid://bfx1j0rdq0h5d" path="res://sounds/piano.ogg" id="2_gma2u"]
 [ext_resource type="PackedScene" uid="uid://b7mfudob1vt2p" path="res://map/tile_map_layer.tscn" id="2_jinmx"]
 [ext_resource type="Texture2D" uid="uid://b14tugcm83q3v" path="res://menus/main/Stickman Spritesheet_gun.png" id="3_fu7sn"]
 
@@ -14,6 +15,10 @@ font_size = 111
 
 [node name="main_menu" type="Node2D"]
 script = ExtResource("1_06t4h")
+
+[node name="Piano" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_gma2u")
+autoplay = true
 
 [node name="TileMapLayer" parent="." instance=ExtResource("2_jinmx")]
 position = Vector2(189, 670)
