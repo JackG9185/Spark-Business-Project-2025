@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://qrxmn08gi1e4"]
+[gd_scene load_steps=9 format=4 uid="uid://qrxmn08gi1e4"]
 
 [ext_resource type="Script" uid="uid://deoyhxk3nrdbm" path="res://menus/main/main_menu.gd" id="1_06t4h"]
 [ext_resource type="FontFile" uid="uid://cxit8lrord42r" path="res://UI/BoldPixels.ttf" id="2_7vrkn"]
@@ -12,6 +12,12 @@ base_font = ExtResource("2_7vrkn")
 [sub_resource type="LabelSettings" id="LabelSettings_jix8l"]
 font = SubResource("FontVariation_fu7sn")
 font_size = 111
+
+[sub_resource type="LabelSettings" id="LabelSettings_gma2u"]
+font = ExtResource("2_7vrkn")
+font_size = 64
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
 
 [node name="main_menu" type="Node2D"]
 script = ExtResource("1_06t4h")
@@ -88,6 +94,14 @@ label_settings = SubResource("LabelSettings_jix8l")
 position = Vector2(856.8304, 349.25)
 scale = Vector2(21.696428, 21.696428)
 texture = ExtResource("3_fu7sn")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 578.0
+offset_top = 2.0
+offset_right = 1142.0
+offset_bottom = 66.0
+text = "Last Stick Standing"
+label_settings = SubResource("LabelSettings_gma2u")
 
 [connection signal="pressed" from="play" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="controls" to="." method="_on_controls_pressed"]
