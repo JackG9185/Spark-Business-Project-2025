@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dgd1ib8tm8mio"]
+[gd_scene load_steps=9 format=3 uid="uid://dgd1ib8tm8mio"]
 
 [ext_resource type="Script" uid="uid://cmkjjlml40h62" path="res://enemies/enemy.gd" id="1_vlw6h"]
 [ext_resource type="Texture2D" uid="uid://dof41653v8coe" path="res://menus/main/Enemy Alien (1).png" id="2_8kyjj"]
+[ext_resource type="AudioStream" uid="uid://6ty58wpgaoe1" path="res://sounds/enemy.wav" id="2_gg5xc"]
 [ext_resource type="PackedScene" path="res://enemies/bullet_detector.tscn" id="2_gxu15"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
@@ -32,6 +33,9 @@ animations = [{
 collision_layer = 4
 collision_mask = 10
 script = ExtResource("1_vlw6h")
+
+[node name="Enemy" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_gg5xc")
 
 [node name="collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_4gyqm")

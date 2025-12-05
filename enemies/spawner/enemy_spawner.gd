@@ -35,7 +35,7 @@ func _ready() -> void:
 	
 	wave_file = load_json(wave_data_path)
 	#print(wave_file["waves"][0])
-	start_wave(1, wave_file["waves"][wave_num])
+	start_wave(1, wave_file["waves"][wave_num%25])
 
 func get_spawn_coords(dist):
 	var pos = Vector2(randi_range(-352,1792),randi_range(-128,960))
@@ -86,6 +86,7 @@ func spawn_enemy(type, mod):
 		main.add_child.call_deferred(instance)
 		instance.mod = wave_mod
 func _physics_process(delta: float) -> void:
+	print(wave_num)
 	if left <= 0:
 		next_wave()
 	if $Timer.is_stopped():
@@ -96,6 +97,7 @@ func _on_timer_timeout() -> void:
 
 func start_wave(rate, types):
 	wave_mod = 1.07**wave_num #change this to change wave difficulty scaling (this is a exponential: 1.07^x)
+	left = 0
 	for type in types:
 		left += types[type]
 	$"../UI".update_enemy_count()
@@ -133,5 +135,7 @@ func next_wave():
 		rate = 0.6
 	if wave_num % 5 == 0 && wave_num != 0:
 		rate = 0.5
+		print("boss done?")
+		Gamestate.player.bullet_size += 0.2
 	start_wave(rate, wave_file["waves"][wave_num%25])
 	

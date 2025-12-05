@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgwywvy66g54l"]
+[gd_scene load_steps=8 format=3 uid="uid://bgwywvy66g54l"]
 
 [ext_resource type="Script" uid="uid://dowrhvspii8fo" path="res://enemies/2c/enemy_2c.gd" id="1_0xtul"]
-[ext_resource type="Shader" uid="uid://byukltmuho2jw" path="res://enemies/color_switcher.gdshader" id="2_16v6s"]
+[ext_resource type="Shader" path="res://enemies/color_switcher.gdshader" id="2_16v6s"]
+[ext_resource type="AudioStream" uid="uid://6ty58wpgaoe1" path="res://sounds/enemy.wav" id="2_ppiq2"]
 [ext_resource type="Texture2D" uid="uid://dtyixull5y74w" path="res://enemies/2c/UFO Enemy.png" id="3_j4k3h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
@@ -19,6 +20,9 @@ shader_parameter/new_color = Color(0.71, 0.355, 0.67449987, 1)
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_0xtul")
+
+[node name="Enemy" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ppiq2")
 
 [node name="collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_4gyqm")

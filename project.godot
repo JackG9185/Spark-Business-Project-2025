@@ -91,4 +91,4 @@ stats={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-environment/defaults/default_clear_color=Color(0.7959473, 0.4431843, 0.20774859, 1)
+environment/defaults/default_clear_color=Color(0.010412434, 2.4576764e-06, 0.097237684, 1)

@@ -34,8 +34,8 @@ func update_health(cur,max):
 
 func update_ui(stat, num):
 	if stat == "hp":
-		print(Gamestate.player.max_hp/100)
-		target_health_pos = int((num * 5) /(Gamestate.player.max_hp/100) )
+		target_health_pos = (float(Gamestate.player.health) / float(Gamestate.player.max_hp)) * 500
+		update_health(Gamestate.player.health, Gamestate.player.max_hp)
 func update_stats(hp,spd,dmg,ss):
 	var format_string = "MAX HEALTH: %d \nSPEED: %d \nDAMAGE: %d \nFIRE RATE: %d/sec \n"
 	var actual_string = format_string % [hp, spd, dmg, ss]

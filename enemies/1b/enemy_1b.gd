@@ -14,12 +14,16 @@ func move():
 	velocity = velocity.move_toward((Gamestate.player.global_position - global_position).normalized() * spd,acc)
 	#position.move_toward(player.position, spd)
 	$AnimatedSprite2D.play("walk")
-
+var dead = false
 func damage():
+	
+	$Enemy.play()
 	self.health -= Gamestate.player.dmg
 	if health <= 0:
-		Gamestate.spawner.enemy_killed()
-		queue_free()
+		if !dead:
+			Gamestate.spawner.enemy_killed()
+			queue_free()
+			dead = true
 	$AnimatedSprite2D.modulate = Color.RED
 	await get_tree().create_timer(0.1).timeout
 	$AnimatedSprite2D.modulate = Color.WHITE

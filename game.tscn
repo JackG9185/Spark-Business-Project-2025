@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=4 uid="uid://db68uewtcumda"]
+[gd_scene load_steps=19 format=4 uid="uid://db68uewtcumda"]
 
 [ext_resource type="PackedScene" uid="uid://dlt3uqsdvgvsi" path="res://player/stickman.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://brk0lhhiqs6kx" path="res://game.gd" id="1_eow3j"]
 [ext_resource type="PackedScene" uid="uid://b7mfudob1vt2p" path="res://map/tile_map_layer.tscn" id="1_ryrav"]
+[ext_resource type="Texture2D" uid="uid://dtu3m6jcyr4d4" path="res://map/stars.png" id="2_7sc4i"]
 [ext_resource type="Script" uid="uid://bl5rfdvdiej31" path="res://player/camera/camera_2d.gd" id="2_e2o6t"]
 [ext_resource type="AudioStream" uid="uid://2k54p32ulkui" path="res://sounds/theme.ogg" id="2_hve3p"]
 [ext_resource type="PackedScene" uid="uid://c3a6idn7jdtb" path="res://UI/ui.tscn" id="4_fc0e3"]
@@ -30,9 +31,14 @@ font_size = 56
 [node name="world" type="Node2D"]
 script = ExtResource("1_eow3j")
 
+[node name="Stars" type="Sprite2D" parent="."]
+position = Vector2(-94, 1660)
+scale = Vector2(2, 2)
+texture = ExtResource("2_7sc4i")
+
 [node name="Theme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_hve3p")
-volume_db = -10.0
+volume_db = -15.0
 autoplay = true
 
 [node name="TileMapLayer" parent="." instance=ExtResource("1_ryrav")]
@@ -56,9 +62,9 @@ offset_right = 841.0
 offset_bottom = 63.0
 
 [node name="enemies" parent="UI" index="5"]
-offset_left = 627.0
+offset_left = 652.0
 offset_top = 5.0
-offset_right = 952.0
+offset_right = 977.0
 offset_bottom = 69.0
 
 [node name="pause_menu" parent="UI" instance=ExtResource("7_j5wjh")]
@@ -106,7 +112,7 @@ offset_left = 11.0
 offset_top = 13.0
 offset_right = 339.0
 offset_bottom = 64.0
-text = "+10 Damage"
+text = "+20 Damage"
 label_settings = SubResource("LabelSettings_mfdv2")
 
 [node name="DamageIcon" type="Sprite2D" parent="UI/Level up menu/Button"]

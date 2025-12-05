@@ -10,7 +10,7 @@ var mouse_pos : Vector2
 var angle_to_mouse : float
 var state = state_enum.move
 var dmg := 50
-var sht_spd = 3
+var sht_spd = 99
 
 
 #define nodes on ready so they load in time
@@ -49,12 +49,13 @@ func do_movement():
 	else: #if the player is NOT moving apply friction
 		velocity = velocity.move_toward(Vector2(0,0),FRICTION)
 	move_and_slide()
-
+var bullet_size = 1.0
 func shoot():
 	if !$"..".paused:
 		if shot_timer.is_stopped() == true:
 			shootSound.play()
 			var instance = proj.instantiate()
+			instance.scale = Vector2(bullet_size, bullet_size)
 			instance.dir = angle_to_mouse
 			instance.spawnPos = global_position + Vector2(0,-40).rotated(angle_to_mouse)+Vector2(0,-abs(5*sin(angle_to_mouse)))
 			instance.spawnRot = angle_to_mouse
@@ -67,7 +68,9 @@ func get_mouse():
 	angle_to_mouse = (global_position - mouse_pos).angle() - PI/2
 
 func take_damage(dmg, inv, source_vel):
+	
 	if inv_timer.is_stopped():
+		$Ouch.play()
 		inv_timer.start(inv) #do i-frames
 		health -= dmg
 		velocity += source_vel.normalized() * 1500 #knockback
@@ -84,7 +87,7 @@ func dash():
 	if inv_timer.time_left < 0.2:
 		inv_timer.start(0.2)
 	dash_cooldown.start(1)
-	velocity = input_vector * speed * 8
+	velocity = input_vector * (1600)
 	Gamestate.ui.start_dash()
 
 func do_debug_col(): #displays when the player is invulnerable
@@ -145,6 +148,7 @@ func update_stats(hp,sp,dm,ss):
 
 var stepped = false
 func _physics_process(delta: float) -> void:
+	$"../UI".update_ui("hp",health)
 	if animator.animation == "walk":
 		if animator.frame % 2 == 1:
 			stepped = true

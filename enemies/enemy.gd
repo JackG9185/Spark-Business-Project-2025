@@ -11,16 +11,21 @@ func _ready() -> void:
 	spd *= mod
 
 func move():
-	velocity = velocity.move_toward((Gamestate.player.global_position - global_position).normalized() * spd,acc)
+	if global_position.distance_squared_to(Gamestate.player.global_position) < 100**2:
+		velocity = velocity.move_toward((Gamestate.player.global_position - global_position).normalized() * spd,acc)
+	else:
+		velocity = velocity.move_toward((Gamestate.player.global_position - global_position).normalized() * spd*1.5,acc)
 	#position.move_toward(player.position, spd)
 	$AnimatedSprite2D.play("walk")
-
+var dead = false
 func damage():
-	
+	$Enemy.play()
 	self.health -= Gamestate.player.dmg
 	if health <= 0:
-		Gamestate.spawner.enemy_killed()
-		queue_free()
+		if !dead:
+			Gamestate.spawner.enemy_killed()
+			queue_free()
+			dead = true
 	$AnimatedSprite2D.modulate = Color.RED
 	await get_tree().create_timer(0.1).timeout
 	$AnimatedSprite2D.modulate = Color.WHITE
